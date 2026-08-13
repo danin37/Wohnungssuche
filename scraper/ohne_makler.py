@@ -20,6 +20,7 @@ import time
 from dataclasses import dataclass
 
 import requests
+from bs4 import BeautifulSoup
 
 logger = logging.getLogger(__name__)
 
@@ -162,36 +163,42 @@ def scrape() -> list[dict]:
             logger.error("ohne-makler.net (%s): Request fehlgeschlagen: %s", kategorie, e)
             continue
 
-        matches = list(LISTING_LINK_RE.finditer(raw_html))
+        soup = BeautifulSoup(raw_html, "html.parser")
         gefunden_ids = set()
-        for i, match in enumerate(matches):
+        diag_zaehler = 0
+
+        for link in soup.find_all("a", href=LISTING_LINK_RE):
+            match = LISTING_LINK_RE.search(link.get("href", ""))
+            if not match:
+                continue
             listing_id = match.group(1)
             if listing_id in gefunden_ids:
                 continue
             gefunden_ids.add(listing_id)
 
-            # Der beschreibende Text (Titel, Preis, PLZ, Zimmer, Fläche) steht
-            # als Linktext NACH dem href-Attribut, also ab match.end(). Als
-            # obere Grenze nehmen wir den Start des nächsten Treffers (oder
-            # ein Cap von 500 Zeichen), damit sich Nachbar-Anzeigen nicht
-            # gegenseitig kontaminieren.
-            start = match.end()
-            next_start = matches[i + 1].start() if i + 1 < len(matches) else len(raw_html)
-            end = min(start + 500, next_start)
-            context = raw_html[start:end]
-            context_text = re.sub(r"<[^>]+>", " ", context)
-            context_text = html.unescape(context_text)
-            context_text = re.sub(r"\s+", " ", context_text).strip()
+            # Laut Live-Diagnose steht der eigentliche Objekttext (Titel,
+            # Preis, PLZ, Ort, Zimmer, Fläche) im alt-Attribut des Bildes
+            # innerhalb des Links, nicht als sichtbarer Fließtext daneben.
+            # Fallback auf den sichtbaren Linktext, falls kein Bild/alt da ist.
+            img = link.find("img")
+            alt_text = (img.get("alt", "") if img else "") or ""
+            sichtbarer_text = link.get_text(separator=" ", strip=True)
+            text_quelle = alt_text if len(alt_text) > len(sichtbarer_text) else sichtbarer_text
+            text_quelle = html.unescape(text_quelle)
+            text_quelle = re.sub(r"\s+", " ", text_quelle).strip()
 
             listing_url = f"{BASE_URL}/immobilie/{listing_id}/"
-            obj = _parse_listing_block(context_text, listing_id, listing_url, kategorie)
+            obj = _parse_listing_block(text_quelle, listing_id, listing_url, kategorie)
+
+            if diag_zaehler < 2:
+                logger.info(
+                    "DIAGNOSE ohne-makler.net Objekt #%d: alt_text=%r sichtbarer_text=%r -> gewählt=%r",
+                    diag_zaehler + 1, alt_text[:150], sichtbarer_text[:150], text_quelle[:150],
+                )
+                diag_zaehler += 1
+
             if obj and obj.titel:
                 alle_objekte.append(obj.to_dict())
-                if len(alle_objekte) <= 2:
-                    logger.info(
-                        "DIAGNOSE ohne-makler.net Objekt #%d: plz=%r ort=%r titel=%r | Rohtext-Ausschnitt: %r",
-                        len(alle_objekte), obj.plz, obj.ort, obj.titel[:60], context_text[:250],
-                    )
 
         logger.info("ohne-makler.net (%s): %d Objekte gefunden", kategorie, len(gefunden_ids))
         time.sleep(DELAY_BETWEEN_REQUESTS)
