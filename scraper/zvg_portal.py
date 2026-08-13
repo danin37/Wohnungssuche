@@ -201,6 +201,13 @@ def _finalize_record(current: dict) -> dict | None:
         "baujahr": None,
         "energieeffizienzklasse": None,
         "objekttyp": objekttyp or "unbekannt",
+        # ZVG-Exposés haben i.d.R. keine frei zugänglichen Fotos (Gutachten/
+        # Fotos sind teils nur über die Detailansicht mit Session verfügbar).
+        # Explizit None, damit der Mailer sauber einen Platzhalter anzeigt.
+        "bild_url": None,
+        # zvg-portal.de zeigt Fotos nur vereinzelt und nur im Detail-Exposé
+        # (extra Request pro Objekt nötig, bewusst nicht umgesetzt in V1).
+        "bild_url": None,
     }
 
 
