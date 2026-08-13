@@ -113,15 +113,26 @@ def _parse_listing_block(block_text: str, listing_id: str, url: str, kategorie_h
             obj.kaufpreis = float(price_match.group(1).replace(".", ""))
         except ValueError:
             logger.warning("Preis konnte nicht geparst werden: %r", price_match.group(0))
-        obj.titel = block_text[: price_match.start()].strip(" -")
-    else:
-        obj.titel = block_text.strip()
 
     plz_match = PLZ_ORT_RE.search(block_text)
     if plz_match:
         obj.plz = plz_match.group(1)
         obj.ort = plz_match.group(2).strip()
         obj.ortsteil = (plz_match.group(3) or "").strip() or None
+
+    # Titel = der Text ZWISCHEN Preis-Ende und PLZ-Beginn. Robust gegen
+    # beide beobachteten Reihenfolgen ("Preis ... Titel ... PLZ" und
+    # "Titel ... Preis ... PLZ"), weil wir nicht mehr davon ausgehen, dass
+    # der Preis am Anfang oder Ende steht - nur dass PLZ/Ort dem Titel folgt.
+    titel_start = price_match.end() if price_match else 0
+    titel_end = plz_match.start() if plz_match else len(block_text)
+    if titel_end > titel_start:
+        obj.titel = block_text[titel_start:titel_end].strip(" -")
+    else:
+        # Fallback falls PLZ vor dem Preis auftaucht (unerwartete Reihenfolge)
+        # oder gar nichts erkannt wurde: ganzen Text als Titel nehmen, besser
+        # als das Objekt komplett zu verlieren.
+        obj.titel = block_text.strip(" -")
 
     zf_match = ZIMMER_FLAECHE_RE.search(block_text)
     if zf_match:
