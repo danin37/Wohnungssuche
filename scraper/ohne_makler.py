@@ -76,6 +76,7 @@ class Objekt:
     baujahr: int | None = None
     energieeffizienzklasse: str | None = None
     objekttyp: str = "Wohnung"
+    bild_url: str | None = None
     kategorie_hint: str = ""  # 'stadt' oder 'land', aus der Such-URL bekannt
 
     def to_dict(self) -> dict:
@@ -93,6 +94,7 @@ class Objekt:
             "baujahr": self.baujahr,
             "energieeffizienzklasse": self.energieeffizienzklasse,
             "objekttyp": self.objekttyp,
+            "bild_url": self.bild_url,
         }
 
 
@@ -187,9 +189,9 @@ def scrape() -> list[dict]:
                 continue
             gefunden_ids.add(listing_id)
 
-            # Laut Live-Diagnose steht der eigentliche Objekttext (Titel,
-            # Preis, PLZ, Ort, Zimmer, Fläche) im alt-Attribut des Bildes
-            # innerhalb des Links, nicht als sichtbarer Fließtext daneben.
+            # Der eigentliche Objekttext (Titel, Preis, PLZ, Ort, Zimmer,
+            # Fläche) steht im alt-Attribut des Bildes innerhalb des Links,
+            # nicht als sichtbarer Fließtext daneben (per Live-Test bestätigt).
             # Fallback auf den sichtbaren Linktext, falls kein Bild/alt da ist.
             img = link.find("img")
             alt_text = (img.get("alt", "") if img else "") or ""
@@ -198,15 +200,30 @@ def scrape() -> list[dict]:
             text_quelle = html.unescape(text_quelle)
             text_quelle = re.sub(r"\s+", " ", text_quelle).strip()
 
-            listing_url = f"{BASE_URL}/immobilie/{listing_id}/"
-            obj = _parse_listing_block(text_quelle, listing_id, listing_url, kategorie)
+            bild_url = None
+            if img:
+                # Bei Lazy-Loading (erkennbar am loading="lazy"-Attribut, das
+                # wir in den Live-Daten gesehen haben) steht im "src" oft nur
+                # ein Platzhalter-Pixel, die echte URL liegt in "data-src"
+                # oder im ersten Eintrag von "srcset". Deshalb hier zuerst
+                # prüfen, "src" erst als letzter Fallback.
+                srcset = img.get("srcset", "")
+                srcset_erste_url = srcset.split(",")[0].strip().split(" ")[0] if srcset else None
+                src = img.get("data-src") or srcset_erste_url or img.get("src")
+                if src:
+                    bild_url = src if src.startswith("http") else f"{BASE_URL}/{src.lstrip('/')}"
 
-            if diag_zaehler < 2:
+            if diag_zaehler < 2 and img:
                 logger.info(
-                    "DIAGNOSE ohne-makler.net Objekt #%d: alt_text=%r sichtbarer_text=%r -> gewählt=%r",
-                    diag_zaehler + 1, alt_text[:150], sichtbarer_text[:150], text_quelle[:150],
+                    "DIAGNOSE Bild-Attribute Objekt #%d: src=%r data-src=%r srcset=%r -> gewählt=%r",
+                    diag_zaehler + 1, img.get("src"), img.get("data-src"), (img.get("srcset") or "")[:150], bild_url,
                 )
                 diag_zaehler += 1
+
+            listing_url = f"{BASE_URL}/immobilie/{listing_id}/"
+            obj = _parse_listing_block(text_quelle, listing_id, listing_url, kategorie)
+            if obj:
+                obj.bild_url = bild_url
 
             if obj and obj.titel:
                 alle_objekte.append(obj.to_dict())
