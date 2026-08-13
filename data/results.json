@@ -1,1 +1,102 @@
-{}
+{
+  "ohne-makler.net::474655": {
+    "baujahr": null,
+    "energieeffizienzklasse": null,
+    "erstmals_gesehen": "2026-08-13",
+    "flaeche_qm": 50.0,
+    "kaufpreis": 249000.0,
+    "objekttyp": "Wohnung",
+    "ort": "Augsburg",
+    "ortsteil": "Innenstadt",
+    "plz": "86150",
+    "preisaenderung": null,
+    "quelle": "ohne-makler.net",
+    "quelle_id": "474655",
+    "status": [
+      "neu"
+    ],
+    "titel": "Beste Innenstadtlage in der Altstadt -Bezugsfreie 3 Zimmer Wohnung +++Ohne Maklerprovision +++",
+    "url": "https://www.ohne-makler.net/immobilie/474655/",
+    "warnungen": [
+      "Baujahr unbekannt",
+      "Energieeffizienzklasse unbekannt"
+    ],
+    "zimmer": 3.0,
+    "zuletzt_gesehen": "2026-08-13"
+  },
+  "ohne-makler.net::476133": {
+    "baujahr": null,
+    "energieeffizienzklasse": null,
+    "erstmals_gesehen": "2026-08-13",
+    "flaeche_qm": 29.0,
+    "kaufpreis": 149000.0,
+    "objekttyp": "Wohnung",
+    "ort": "Augsburg",
+    "ortsteil": "Innenstadt",
+    "plz": "86150",
+    "preisaenderung": null,
+    "quelle": "ohne-makler.net",
+    "quelle_id": "476133",
+    "status": [
+      "neu"
+    ],
+    "titel": "Attraktive & helle DG Wohnung - TOP LAGE in der Altstadt - Provisionsfrei",
+    "url": "https://www.ohne-makler.net/immobilie/476133/",
+    "warnungen": [
+      "Baujahr unbekannt",
+      "Energieeffizienzklasse unbekannt"
+    ],
+    "zimmer": 2.0,
+    "zuletzt_gesehen": "2026-08-13"
+  },
+  "ohne-makler.net::482210": {
+    "baujahr": null,
+    "energieeffizienzklasse": null,
+    "erstmals_gesehen": "2026-08-13",
+    "flaeche_qm": 70.15,
+    "kaufpreis": 299000.0,
+    "objekttyp": "Wohnung",
+    "ort": "Augsburg",
+    "ortsteil": "Pfersee",
+    "plz": "86157",
+    "preisaenderung": null,
+    "quelle": "ohne-makler.net",
+    "quelle_id": "482210",
+    "status": [
+      "neu"
+    ],
+    "titel": "Körnerstraße 8",
+    "url": "https://www.ohne-makler.net/immobilie/482210/",
+    "warnungen": [
+      "Baujahr unbekannt",
+      "Energieeffizienzklasse unbekannt"
+    ],
+    "zimmer": 2.0,
+    "zuletzt_gesehen": "2026-08-13"
+  },
+  "ohne-makler.net::482302": {
+    "baujahr": null,
+    "energieeffizienzklasse": null,
+    "erstmals_gesehen": "2026-08-13",
+    "flaeche_qm": 64.0,
+    "kaufpreis": 279000.0,
+    "objekttyp": "Wohnung",
+    "ort": "Augsburg",
+    "ortsteil": "Innenstadt",
+    "plz": "86153",
+    "preisaenderung": null,
+    "quelle": "ohne-makler.net",
+    "quelle_id": "482302",
+    "status": [
+      "neu"
+    ],
+    "titel": "Wohnung Augsburg Innenstadt Traumlage PROVISIONSFREI zu verkaufen",
+    "url": "https://www.ohne-makler.net/immobilie/482302/",
+    "warnungen": [
+      "Baujahr unbekannt",
+      "Energieeffizienzklasse unbekannt"
+    ],
+    "zimmer": 3.0,
+    "zuletzt_gesehen": "2026-08-13"
+  }
+}
