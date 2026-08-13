@@ -187,6 +187,11 @@ def scrape() -> list[dict]:
             obj = _parse_listing_block(context_text, listing_id, listing_url, kategorie)
             if obj and obj.titel:
                 alle_objekte.append(obj.to_dict())
+                if len(alle_objekte) <= 2:
+                    logger.info(
+                        "DIAGNOSE ohne-makler.net Objekt #%d: plz=%r ort=%r titel=%r | Rohtext-Ausschnitt: %r",
+                        len(alle_objekte), obj.plz, obj.ort, obj.titel[:60], context_text[:250],
+                    )
 
         logger.info("ohne-makler.net (%s): %d Objekte gefunden", kategorie, len(gefunden_ids))
         time.sleep(DELAY_BETWEEN_REQUESTS)
