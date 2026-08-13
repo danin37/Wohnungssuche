@@ -149,76 +149,115 @@ def _build_search_params(soup: BeautifulSoup) -> tuple[str, str, dict] | None:
     return action, method, fields
 
 
+def _finalize_record(current: dict) -> dict | None:
+    if not current.get("aktenzeichen"):
+        return None
+
+    blob = " || ".join(filter(None, [
+        current.get("objekt_lage_raw", ""),
+        current.get("verkehrswert_raw", ""),
+        current.get("termin_raw", ""),
+    ]))
+
+    verkehrswert = None
+    vw_match = VERKEHRSWERT_RE.search(current.get("verkehrswert_raw", "") or blob)
+    if vw_match:
+        try:
+            verkehrswert = float(vw_match.group(1).replace(".", "").replace(",", "."))
+        except ValueError:
+            pass
+
+    # Objekt/Lage-Zeile hat die Form "Einfamilienhaus | : | Adresse" bzw.
+    # "Eigentumswohnung (1 Zimmer) | : | Adresse" - Typ vor dem ":", Adresse danach
+    objekt_lage_raw = current.get("objekt_lage_raw", "")
+    objekttyp = None
+    adresse = objekt_lage_raw
+    if ":" in objekt_lage_raw:
+        typ_teil, adresse = objekt_lage_raw.split(":", 1)
+        objekttyp = typ_teil.strip(" |").strip()
+        adresse = adresse.strip(" |").strip()
+
+    plz_match = PLZ_RE.search(adresse)
+    plz = plz_match.group(1) if plz_match else None
+
+    titel_teile = [t for t in [objekttyp, adresse] if t]
+    titel = " – ".join(titel_teile) if titel_teile else current["aktenzeichen"]
+
+    return {
+        "quelle": "zvg-portal.de",
+        "quelle_id": current.get("detail_url") or current["aktenzeichen"],
+        "titel": titel[:200],
+        "url": current.get("detail_url") or SEARCH_FORM_URL,
+        "kaufpreis": None,  # ZV hat keinen Kaufpreis, sondern Verkehrswert
+        "verkehrswert": verkehrswert,
+        "termin": current.get("termin_raw"),
+        "plz": plz,
+        # Die Adresse (aus Objekt/Lage) ist die zuverlässigste Textquelle für
+        # die Orts-/Gemeinde-Erkennung in filters.bestimme_kategorie().
+        "ort": adresse or blob,
+        "ortsteil": None,
+        "zimmer": None,
+        "flaeche_qm": None,
+        "baujahr": None,
+        "energieeffizienzklasse": None,
+        "objekttyp": objekttyp or "unbekannt",
+    }
+
+
 def _extract_listings(results_html: str) -> list[dict]:
     soup = BeautifulSoup(results_html, "html.parser")
-    objekte = []
 
-    # Generischer Ansatz: jede Tabellenzeile, die einen Link auf einen
-    # Termin/Aktenzeichen enthält, wird als ein Datensatz behandelt.
     rows = soup.find_all("tr")
     if not rows:
         logger.warning("zvg-portal.de: Keine Tabellenzeilen in den Suchergebnissen gefunden.")
         logger.info("DIAGNOSE zvg-portal.de: Antwort-Ausschnitt (erste 500 Zeichen des sichtbaren Texts): %r", soup.get_text(separator=" ", strip=True)[:500])
         return []
 
-    diag_zaehler = 0
+    objekte: list[dict] = []
+    current: dict | None = None
+
     for row in rows:
-        link = row.find("a", href=True)
         row_text = html.unescape(row.get_text(separator=" | ", strip=True))
-        if not row_text or len(row_text) < 10:
+        if not row_text or len(row_text) < 5:
             continue
 
-        if diag_zaehler < 15:
-            logger.info("DIAGNOSE zvg-portal.de Zeile #%d: %r", diag_zaehler + 1, row_text[:250])
-            diag_zaehler += 1
+        label, _, rest = row_text.partition(" | ")
+        label_lower = label.strip().lower()
 
-        verkehrswert = None
-        vw_match = VERKEHRSWERT_RE.search(row_text)
-        if vw_match:
-            try:
-                verkehrswert = float(vw_match.group(1).replace(".", "").replace(",", "."))
-            except ValueError:
-                pass
+        if label_lower.startswith("aktenzeichen"):
+            # Neuer Datensatz beginnt - vorherigen abschließen und speichern
+            fertig = _finalize_record(current) if current else None
+            if fertig:
+                objekte.append(fertig)
 
-        termin_match = TERMIN_DATUM_RE.search(row_text)
-        termin = termin_match.group(1) if termin_match else None
+            link = row.find("a", href=True)
+            detail_url = None
+            if link:
+                href = link["href"]
+                detail_url = href if href.startswith("http") else f"{BASE_URL}/{href.lstrip('/')}"
 
-        plz_match = PLZ_RE.search(row_text)
-        plz = plz_match.group(1) if plz_match else None
-
-        detail_url = None
-        if link:
-            href = link["href"]
-            detail_url = href if href.startswith("http") else f"{BASE_URL}/{href.lstrip('/')}"
-
-        # Nur Zeilen aufnehmen, die plausibel ein Objekt-Datensatz sind
-        # (Verkehrswert oder Termin oder Detail-Link vorhanden)
-        if not (verkehrswert or termin or detail_url):
+            current = {"aktenzeichen": rest.strip(), "detail_url": detail_url}
             continue
 
-        objekte.append({
-            "quelle": "zvg-portal.de",
-            "quelle_id": (detail_url or row_text[:50]),
-            "titel": row_text[:200],
-            "url": detail_url or SEARCH_FORM_URL,
-            "kaufpreis": None,  # ZV hat keinen Kaufpreis, sondern Verkehrswert
-            "verkehrswert": verkehrswert,
-            "termin": termin,
-            "plz": plz,
-            # Der Rohtext der Zeile enthält Ort/Lage-Angaben, auch wenn wir
-            # sie nicht sauber isolieren können. filters.bestimme_kategorie()
-            # sucht "augsburg"/Gemeindenamen als Teilstring - das funktioniert
-            # auch gegen den Rohtext. Mit ort=None würde JEDES Objekt hier
-            # fälschlich rausgefiltert werden, da die Kategorie-Erkennung
-            # sonst nichts zum Prüfen hätte.
-            "ort": row_text,
-            "ortsteil": None,
-            "zimmer": None,
-            "flaeche_qm": None,
-            "baujahr": None,
-            "energieeffizienzklasse": None,
-            "objekttyp": "Eigentumswohnung",
-        })
+        if current is None:
+            # Zeilen vor dem ersten Aktenzeichen (Paginierung, Kopfzeile o.ä.)
+            continue
+
+        if label_lower.startswith("objekt/lage") and "objekt_lage_raw" not in current:
+            current["objekt_lage_raw"] = rest
+        elif label_lower.startswith("verkehrswert") and "verkehrswert_raw" not in current:
+            current["verkehrswert_raw"] = row_text
+        elif label_lower.startswith("termin") and "termin_raw" not in current:
+            current["termin_raw"] = rest
+        # Andere Zeilen (Amtsgericht, Amtliche Bekanntmachung, verschachtelte
+        # Verkehrswert/Zubehör-Unterzeilen) werden bewusst ignoriert - liefern
+        # keine für die Filterung relevanten zusätzlichen Informationen.
+
+    # Letzten offenen Datensatz nicht vergessen
+    if current:
+        fertig = _finalize_record(current)
+        if fertig:
+            objekte.append(fertig)
 
     return objekte
 
