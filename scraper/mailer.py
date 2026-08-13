@@ -132,10 +132,10 @@ def _format_objekt_html(objekt: dict) -> str:
             {quelle}
           </div>
           <div style="margin-bottom:4px;">{_status_badges_html(objekt)}</div>
-          <a href="{url}" style="font-family:Georgia,'Times New Roman',serif; font-size:15px; font-weight:700; color:{FARBE_NAVY}; text-decoration:none; line-height:1.35;">
+          <a href="{url}" style="font-family:'Cormorant Garamond',Georgia,'Times New Roman',serif; font-size:15px; font-weight:700; color:{FARBE_NAVY}; text-decoration:none; line-height:1.35;">
             {titel}
           </a>
-          <div style="font-family:Georgia,'Times New Roman',serif; font-size:16px; font-weight:700; color:{FARBE_GOLD}; margin-top:6px;">
+          <div style="font-family:'Cormorant Garamond',Georgia,'Times New Roman',serif; font-size:16px; font-weight:700; color:{FARBE_GOLD}; margin-top:6px;">
             {_format_preis(objekt)}
           </div>
           {preisaenderung_html}
@@ -152,7 +152,7 @@ def _bereich_html(titel: str, objekte: list[dict]) -> str:
     <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:28px 0 14px 0;">
       <tr>
         <td style="border-bottom:2px solid {FARBE_NAVY};padding-bottom:6px;">
-          <span style="font-family:Georgia,'Times New Roman',serif; font-size:17px; font-weight:700; color:{FARBE_NAVY};">{titel}</span>
+          <span style="font-family:'Cormorant Garamond',Georgia,'Times New Roman',serif; font-size:17px; font-weight:700; color:{FARBE_NAVY};">{titel}</span>
           <span style="font-size:12px; color:{FARBE_TEXT_MUTED}; margin-left:8px;">({len(objekte)})</span>
         </td>
       </tr>
@@ -188,6 +188,14 @@ def baue_email_html(stadt_objekte: list[dict], land_objekte: list[dict]) -> tupl
 
     html_body = f"""
     <html>
+    <head>
+      <meta charset="utf-8">
+      <!--[if !mso]><!-->
+      <style>
+        @import url('https://fonts.googleapis.com/css2?family=Tangerine:wght@700&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&display=swap');
+      </style>
+      <!--<![endif]-->
+    </head>
     <body style="margin:0; padding:0; background:{FARBE_HINTERGRUND}; font-family:Arial,Helvetica,sans-serif; color:{FARBE_TEXT};">
       <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:{FARBE_HINTERGRUND}; padding:24px 0;">
         <tr>
@@ -200,10 +208,10 @@ def baue_email_html(stadt_objekte: list[dict], land_objekte: list[dict]) -> tupl
                   <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
                     <tr>
                       <td>
-                        <div style="font-family:Georgia,'Times New Roman',serif; font-size:22px; font-weight:700; color:#FFFFFF; letter-spacing:0.04em;">
-                          DN&nbsp;REAL&nbsp;ESTATE
+                        <div style="font-family:'Tangerine','Monotype Corsiva','Apple Chancery',cursive; font-size:48px; font-weight:700; color:{FARBE_GOLD}; letter-spacing:0.01em; line-height:1;">
+                          DN Real Estate
                         </div>
-                        <div style="font-size:11px; color:{FARBE_GOLD}; letter-spacing:0.12em; text-transform:uppercase; margin-top:2px;">
+                        <div style="font-size:11px; color:#FFFFFF; letter-spacing:0.12em; text-transform:uppercase; margin-top:6px;">
                           Marktbeobachtung Augsburg
                         </div>
                       </td>
@@ -254,7 +262,7 @@ def baue_email_html(stadt_objekte: list[dict], land_objekte: list[dict]) -> tupl
               <!-- Fußzeile -->
               <tr>
                 <td style="background:{FARBE_NAVY}; padding:20px 32px; margin-top:12px;">
-                  <div style="font-family:Georgia,'Times New Roman',serif; font-size:13px; color:#FFFFFF; font-weight:700;">DN Real Estate</div>
+                  <div style="font-family:'Tangerine','Monotype Corsiva','Apple Chancery',cursive; font-size:30px; font-weight:700; color:{FARBE_GOLD};">DN Real Estate</div>
                   <div style="font-size:11px; color:#9AA3B0; margin-top:4px; line-height:1.6;">
                     Automatisiert erstellte Marktbeobachtung, kein Angebot im rechtlichen Sinne.
                     Alle Angaben ohne Gewähr, Prüfung der Originalquelle vor jeder Entscheidung empfohlen.
