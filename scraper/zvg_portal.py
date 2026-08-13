@@ -138,6 +138,7 @@ def _extract_listings(results_html: str) -> list[dict]:
     rows = soup.find_all("tr")
     if not rows:
         logger.warning("zvg-portal.de: Keine Tabellenzeilen in den Suchergebnissen gefunden.")
+        logger.info("DIAGNOSE zvg-portal.de: Antwort-Ausschnitt (erste 500 Zeichen des sichtbaren Texts): %r", soup.get_text(separator=" ", strip=True)[:500])
         return []
 
     for row in rows:
@@ -198,8 +199,11 @@ def _extract_listings(results_html: str) -> list[dict]:
 
 
 def scrape() -> list[dict]:
+    session = requests.Session()
+    session.headers.update(HEADERS)
+
     try:
-        resp = requests.get(SEARCH_FORM_URL, headers=HEADERS, timeout=REQUEST_TIMEOUT)
+        resp = session.get(SEARCH_FORM_URL, timeout=REQUEST_TIMEOUT)
         resp.raise_for_status()
     except requests.RequestException as e:
         logger.error("zvg-portal.de: Suchformular konnte nicht geladen werden: %s", e)
@@ -216,14 +220,15 @@ def scrape() -> list[dict]:
 
     try:
         if method == "POST":
-            result_resp = requests.post(action, data=fields, headers=HEADERS, timeout=REQUEST_TIMEOUT)
+            result_resp = session.post(action, data=fields, timeout=REQUEST_TIMEOUT)
         else:
-            result_resp = requests.get(action, params=fields, headers=HEADERS, timeout=REQUEST_TIMEOUT)
+            result_resp = session.get(action, params=fields, timeout=REQUEST_TIMEOUT)
         result_resp.raise_for_status()
     except requests.RequestException as e:
         logger.error("zvg-portal.de: Suchanfrage fehlgeschlagen: %s", e)
         return []
 
+    logger.info("zvg-portal.de: Ergebnis-URL nach Suche: %s", result_resp.url)
     objekte = _extract_listings(result_resp.text)
     logger.info("zvg-portal.de: %d Datensätze extrahiert (vor Geo-Filterung)", len(objekte))
     return objekte
