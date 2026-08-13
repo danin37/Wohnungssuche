@@ -161,11 +161,16 @@ def _extract_listings(results_html: str) -> list[dict]:
         logger.info("DIAGNOSE zvg-portal.de: Antwort-Ausschnitt (erste 500 Zeichen des sichtbaren Texts): %r", soup.get_text(separator=" ", strip=True)[:500])
         return []
 
+    diag_zaehler = 0
     for row in rows:
         link = row.find("a", href=True)
         row_text = html.unescape(row.get_text(separator=" | ", strip=True))
         if not row_text or len(row_text) < 10:
             continue
+
+        if diag_zaehler < 15:
+            logger.info("DIAGNOSE zvg-portal.de Zeile #%d: %r", diag_zaehler + 1, row_text[:250])
+            diag_zaehler += 1
 
         verkehrswert = None
         vw_match = VERKEHRSWERT_RE.search(row_text)
