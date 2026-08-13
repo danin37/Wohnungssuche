@@ -56,15 +56,27 @@ TERMIN_DATUM_RE = re.compile(r"\b(\d{2}\.\d{2}\.\d{4})\b")
 PLZ_RE = re.compile(r"\b(\d{5})\b")
 
 
-def _get_form_fields(soup: BeautifulSoup) -> tuple[str, str, dict]:
+def _find_target_form(soup: BeautifulSoup):
     """
-    Findet das Suchformular und extrahiert action-URL, HTTP-Methode und
-    alle aktuellen Feldwerte (inkl. versteckter Felder wie Session-Tokens).
+    Die Seite enthält mehrere <form>-Elemente (u.a. eine generische
+    Kopfzeilen-Volltextsuche). Wir suchen gezielt das Formular, das
+    tatsächlich eine "Bayern"-Option enthält - nur das ist die echte
+    ZV-Terminsuche.
     """
-    form = soup.find("form")
-    if form is None:
-        raise RuntimeError("Kein <form>-Element auf der Suchseite gefunden - Seitenstruktur hat sich vermutlich geändert.")
+    for form in soup.find_all("form"):
+        for select in form.find_all("select"):
+            for option in select.find_all("option"):
+                if LAND_OPTION_TEXT.lower() in option.get_text(strip=True).lower():
+                    return form
+    return None
 
+
+def _get_form_fields(form) -> tuple[str, str, dict]:
+    """
+    Extrahiert action-URL, HTTP-Methode und alle aktuellen Feldwerte
+    (inkl. versteckter Felder wie Session-Tokens) aus dem übergebenen
+    Formular-Element.
+    """
     action = form.get("action") or SEARCH_FORM_URL
     if not action.startswith("http"):
         action = f"{BASE_URL}/{action.lstrip('/')}"
@@ -85,12 +97,15 @@ def _get_form_fields(soup: BeautifulSoup) -> tuple[str, str, dict]:
     return action, method, fields
 
 
-def _find_select_value(soup: BeautifulSoup, option_text: str) -> tuple[str, str] | None:
+def _find_select_value(form, option_text: str) -> tuple[str, str] | None:
     """
-    Sucht über alle <select>-Elemente nach einer <option>, deren sichtbarer
-    Text option_text enthält. Gibt (select_name, option_value) zurück.
+    Sucht innerhalb des übergebenen Formulars nach einer <option>, deren
+    sichtbarer Text option_text enthält. Gibt (select_name, option_value)
+    zurück. Bewusst auf das Formular begrenzt (nicht die ganze Seite), damit
+    keine Felder aus dem falschen <form> (z.B. Kopfzeilen-Suche) gezogen
+    werden.
     """
-    for select in soup.find_all("select"):
+    for select in form.find_all("select"):
         name = select.get("name")
         if not name:
             continue
@@ -101,9 +116,14 @@ def _find_select_value(soup: BeautifulSoup, option_text: str) -> tuple[str, str]
 
 
 def _build_search_params(soup: BeautifulSoup) -> tuple[str, str, dict] | None:
-    action, method, fields = _get_form_fields(soup)
+    form = _find_target_form(soup)
+    if form is None:
+        logger.error("zvg-portal.de: Konnte das ZV-Suchformular nicht identifizieren (keine 'Bayern'-Option in irgendeinem <form> gefunden).")
+        return None
 
-    land_match = _find_select_value(soup, LAND_OPTION_TEXT)
+    action, method, fields = _get_form_fields(form)
+
+    land_match = _find_select_value(form, LAND_OPTION_TEXT)
     if land_match is None:
         logger.error("zvg-portal.de: Konnte Land-Auswahlfeld für '%s' nicht finden.", LAND_OPTION_TEXT)
         return None
@@ -113,7 +133,7 @@ def _build_search_params(soup: BeautifulSoup) -> tuple[str, str, dict] | None:
     objekt_values = []
     objekt_name = None
     for text in OBJEKT_OPTION_TEXTS:
-        match = _find_select_value(soup, text)
+        match = _find_select_value(form, text)
         if match is None:
             logger.warning("zvg-portal.de: Objektart-Option '%s' nicht gefunden, wird übersprungen.", text)
             continue
