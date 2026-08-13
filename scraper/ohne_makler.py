@@ -1,14 +1,22 @@
 """
-Scraper für ohne-makler.net.
+Scraper für zvg-portal.de (bundesweites Zwangsversteigerungsportal der
+Landesjustizverwaltungen).
 
-WICHTIGER HINWEIS ZUR ZUVERLÄSSIGKEIT (bitte beim ersten Testlauf beachten):
-Die genauen CSS-Klassen der Seite waren beim Bau dieses Skripts nicht
-einsehbar (nur aufbereiteter Text, kein Roh-HTML). Die Extraktion arbeitet
-daher primär über robuste Regex-Muster auf den Objekt-Links
-(/immobilie/<ID>/) und den umgebenden Text, nicht über exakte CSS-Selektoren.
-Das ist tendenziell stabiler gegen kleine Layout-Änderungen, kann aber bei
-größeren Strukturänderungen der Seite ins Leere laufen. Beim ersten Lauf
-unbedingt die Actions-Logs prüfen (Anzahl gefundener Objekte plausibel?).
+WICHTIGER HINWEIS ZUR ZUVERLÄSSIGKEIT:
+Anders als bei ohne-makler.net konnte ich hier die exakten Formularfeld-
+Namen nicht direkt einsehen (nur die gerenderte Textstruktur). Deshalb liest
+dieser Scraper das Suchformular zur Laufzeit selbst aus (Feldnamen, aktuelle
+Options-Werte) statt sie hart zu kodieren - das ist robuster gegen falsch
+geratene Namen, aber abhängig davon, dass die grobe Formularstruktur
+(Land-Auswahl mit "Bayern"-Option, Objektart-Auswahl mit "Eigentumswohnung"-
+Optionen) so bleibt wie beim Bau dieses Skripts beobachtet.
+
+Bewusste Vereinfachung: Es wird NUR nach Land=Bayern und Objektart=ETW
+serverseitig gefiltert, nicht nach Ort/PLZ (das Ort-Feld-Verhalten war nicht
+zweifelsfrei zu bestimmen). Die Eingrenzung auf Augsburg Stadt/Land
+übernimmt filters.py im Anschluss anhand der in den Ergebnissen enthaltenen
+Lage-Angaben. Dadurch werden ggf. mehr Datensätze geladen als nötig
+(bayernweit statt nur Augsburg-Region), aber die Ergebnisse sind korrekt.
 """
 
 from __future__ import annotations
@@ -17,27 +25,16 @@ import html
 import logging
 import re
 import time
-from dataclasses import dataclass
 
 import requests
 from bs4 import BeautifulSoup
 
 logger = logging.getLogger(__name__)
 
-BASE_URL = "https://www.ohne-makler.net"
-
-# Zwei Such-URLs: Stadt und Land getrennt, damit wir die Kategorie schon
-# beim Scrapen kennen (unabhängig von filters.bestimme_kategorie, das dient
-# hier nur als zusätzliche Absicherung)
-SEARCH_URLS = {
-    "stadt": f"{BASE_URL}/immobilien/wohnung-kaufen/bayern/kreis-augsburg-stadt/",
-    "land": f"{BASE_URL}/immobilien/wohnung-kaufen/bayern/kreis-augsburg-land/",
-}
+BASE_URL = "https://www.zvg-portal.de"
+SEARCH_FORM_URL = f"{BASE_URL}/index.php?button=Termine+suchen"
 
 HEADERS = {
-    # Realistischer Browser-User-Agent. Kein Verschleiern der Bot-Natur
-    # über gefälschte Header hinaus - wir geben uns nicht als spezifischen
-    # echten Nutzer aus, nur als normaler Browser-Request.
     "User-Agent": (
         "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
         "(KHTML, like Gecko) Chrome/124.0 Safari/537.36"
@@ -46,180 +43,225 @@ HEADERS = {
 }
 
 REQUEST_TIMEOUT = 20
-DELAY_BETWEEN_REQUESTS = 2  # Sekunden, Rücksicht auf den Server
 
-# Matched z.B. "/immobilie/484840/"
-LISTING_LINK_RE = re.compile(r"/immobilie/(\d+)/")
+# Wonach wir in den Options-Texten suchen, um die richtigen Werte zu finden
+LAND_OPTION_TEXT = "Bayern"
+OBJEKT_OPTION_TEXTS = [
+    "Eigentumswohnung (1 bis 2 Zimmer)",
+    "Eigentumswohnung (3 bis 4 Zimmer)",
+]
 
-# Preis, z.B. "279.000 €"
-PRICE_RE = re.compile(r"([\d.]+)\s*€")
-
-# PLZ + Ort + (Bezirk), z.B. "86153 Augsburg (Innenstadt)"
-PLZ_ORT_RE = re.compile(r"(\d{5})\s+([A-Za-zÄÖÜäöüß\-\. ]+?)(?:\s*\(([^)]+)\))?(?:\s|$)")
-
-# Zimmeranzahl, z.B. "2,5" oder "3" gefolgt von Fläche "70,15m²"
-ZIMMER_FLAECHE_RE = re.compile(r"(\d+(?:,\d+)?)\s+(\d+(?:,\d+)?)\s*m²")
+VERKEHRSWERT_RE = re.compile(r"([\d.]+,\d{2})\s*€")
+TERMIN_DATUM_RE = re.compile(r"\b(\d{2}\.\d{2}\.\d{4})\b")
+PLZ_RE = re.compile(r"\b(\d{5})\b")
 
 
-@dataclass
-class Objekt:
-    quelle: str = "ohne-makler.net"
-    quelle_id: str = ""
-    titel: str = ""
-    url: str = ""
-    kaufpreis: float | None = None
-    plz: str | None = None
-    ort: str | None = None
-    ortsteil: str | None = None
-    zimmer: float | None = None
-    flaeche_qm: float | None = None
-    baujahr: int | None = None
-    energieeffizienzklasse: str | None = None
-    objekttyp: str = "Wohnung"
-    kategorie_hint: str = ""  # 'stadt' oder 'land', aus der Such-URL bekannt
-
-    def to_dict(self) -> dict:
-        return {
-            "quelle": self.quelle,
-            "quelle_id": self.quelle_id,
-            "titel": self.titel,
-            "url": self.url,
-            "kaufpreis": self.kaufpreis,
-            "plz": self.plz,
-            "ort": self.ort,
-            "ortsteil": self.ortsteil,
-            "zimmer": self.zimmer,
-            "flaeche_qm": self.flaeche_qm,
-            "baujahr": self.baujahr,
-            "energieeffizienzklasse": self.energieeffizienzklasse,
-            "objekttyp": self.objekttyp,
-        }
-
-
-def _parse_listing_block(block_text: str, listing_id: str, url: str, kategorie_hint: str) -> Objekt | None:
+def _find_target_form(soup: BeautifulSoup):
     """
-    Parsed einen einzelnen Objekt-Textblock (Title + Metadaten, wie sie in
-    den Linktexten der Übersichtsseite stehen).
+    Die Seite enthält mehrere <form>-Elemente (u.a. eine generische
+    Kopfzeilen-Volltextsuche). Wir suchen gezielt das Formular, das
+    tatsächlich eine "Bayern"-Option enthält - nur das ist die echte
+    ZV-Terminsuche.
     """
-    obj = Objekt(quelle_id=listing_id, url=url, kategorie_hint=kategorie_hint)
-
-    # Rest des öffnenden Tags (z.B. '">' vom Ende von href="...") sowie
-    # führende/nachfolgende Sonderzeichen abschneiden
-    block_text = re.sub(r'^[">\s]+', "", block_text)
-
-    price_match = PRICE_RE.search(block_text)
-    if price_match:
-        try:
-            obj.kaufpreis = float(price_match.group(1).replace(".", ""))
-        except ValueError:
-            logger.warning("Preis konnte nicht geparst werden: %r", price_match.group(0))
-
-    plz_match = PLZ_ORT_RE.search(block_text)
-    if plz_match:
-        obj.plz = plz_match.group(1)
-        obj.ort = plz_match.group(2).strip()
-        obj.ortsteil = (plz_match.group(3) or "").strip() or None
-
-    # Titel = der Text ZWISCHEN Preis-Ende und PLZ-Beginn. Robust gegen
-    # beide beobachteten Reihenfolgen ("Preis ... Titel ... PLZ" und
-    # "Titel ... Preis ... PLZ"), weil wir nicht mehr davon ausgehen, dass
-    # der Preis am Anfang oder Ende steht - nur dass PLZ/Ort dem Titel folgt.
-    titel_start = price_match.end() if price_match else 0
-    titel_end = plz_match.start() if plz_match else len(block_text)
-    if titel_end > titel_start:
-        obj.titel = block_text[titel_start:titel_end].strip(" -")
-    else:
-        # Fallback falls PLZ vor dem Preis auftaucht (unerwartete Reihenfolge)
-        # oder gar nichts erkannt wurde: ganzen Text als Titel nehmen, besser
-        # als das Objekt komplett zu verlieren.
-        obj.titel = block_text.strip(" -")
-
-    zf_match = ZIMMER_FLAECHE_RE.search(block_text)
-    if zf_match:
-        try:
-            obj.zimmer = float(zf_match.group(1).replace(",", "."))
-            obj.flaeche_qm = float(zf_match.group(2).replace(",", "."))
-        except ValueError:
-            logger.warning("Zimmer/Fläche konnte nicht geparst werden: %r", zf_match.group(0))
-
-    # Baujahr und Energieeffizienzklasse stehen auf der Übersichtsseite i.d.R.
-    # NICHT drin, sondern erst im Detail-Exposé. Bewusster Kompromiss für
-    # Version 1: wir laden nicht jedes Detail-Exposé einzeln nach (deutlich
-    # mehr Requests, langsamer, höheres Scraping-Risiko), sondern lassen
-    # diese Felder hier leer. filters.py behandelt fehlende Werte als
-    # "durchlassen, nicht ausschließen" - passt zu deiner Vorgabe bei der
-    # Energieeffizienz.
-    return obj
+    for form in soup.find_all("form"):
+        for select in form.find_all("select"):
+            for option in select.find_all("option"):
+                if LAND_OPTION_TEXT.lower() in option.get_text(strip=True).lower():
+                    return form
+    return None
 
 
-def _fetch(url: str) -> str:
-    resp = requests.get(url, headers=HEADERS, timeout=REQUEST_TIMEOUT)
-    resp.raise_for_status()
-    return resp.text
+def _get_form_fields(form) -> tuple[str, str, dict]:
+    """
+    Extrahiert action-URL, HTTP-Methode und alle aktuellen Feldwerte
+    (inkl. versteckter Felder wie Session-Tokens) aus dem übergebenen
+    Formular-Element.
+    """
+    action = form.get("action") or SEARCH_FORM_URL
+    if not action.startswith("http"):
+        action = f"{BASE_URL}/{action.lstrip('/')}"
+    method = (form.get("method") or "GET").upper()
+
+    fields: dict = {}
+    for inp in form.find_all("input"):
+        name = inp.get("name")
+        if not name:
+            continue
+        typ = (inp.get("type") or "text").lower()
+        if typ in ("submit", "reset", "button", "image"):
+            continue
+        if typ in ("checkbox", "radio") and not inp.has_attr("checked"):
+            continue
+        fields[name] = inp.get("value", "")
+
+    return action, method, fields
+
+
+def _find_select_value(form, option_text: str) -> tuple[str, str] | None:
+    """
+    Sucht innerhalb des übergebenen Formulars nach einer <option>, deren
+    sichtbarer Text option_text enthält. Gibt (select_name, option_value)
+    zurück. Bewusst auf das Formular begrenzt (nicht die ganze Seite), damit
+    keine Felder aus dem falschen <form> (z.B. Kopfzeilen-Suche) gezogen
+    werden.
+    """
+    for select in form.find_all("select"):
+        name = select.get("name")
+        if not name:
+            continue
+        for option in select.find_all("option"):
+            if option_text.lower() in option.get_text(strip=True).lower():
+                return name, option.get("value", option.get_text(strip=True))
+    return None
+
+
+def _build_search_params(soup: BeautifulSoup) -> tuple[str, str, dict] | None:
+    form = _find_target_form(soup)
+    if form is None:
+        logger.error("zvg-portal.de: Konnte das ZV-Suchformular nicht identifizieren (keine 'Bayern'-Option in irgendeinem <form> gefunden).")
+        return None
+
+    action, method, fields = _get_form_fields(form)
+
+    land_match = _find_select_value(form, LAND_OPTION_TEXT)
+    if land_match is None:
+        logger.error("zvg-portal.de: Konnte Land-Auswahlfeld für '%s' nicht finden.", LAND_OPTION_TEXT)
+        return None
+    land_name, land_value = land_match
+    fields[land_name] = land_value
+
+    objekt_values = []
+    objekt_name = None
+    for text in OBJEKT_OPTION_TEXTS:
+        match = _find_select_value(form, text)
+        if match is None:
+            logger.warning("zvg-portal.de: Objektart-Option '%s' nicht gefunden, wird übersprungen.", text)
+            continue
+        objekt_name, value = match
+        objekt_values.append(value)
+
+    if objekt_name and objekt_values:
+        # Mehrfachauswahl: als Liste setzen (requests kodiert Listen korrekt
+        # als wiederholte Query-Parameter, was dem üblichen HTML-Multi-Select
+        # -Verhalten entspricht)
+        fields[objekt_name] = objekt_values
+
+    return action, method, fields
+
+
+def _extract_listings(results_html: str) -> list[dict]:
+    soup = BeautifulSoup(results_html, "html.parser")
+    objekte = []
+
+    # Generischer Ansatz: jede Tabellenzeile, die einen Link auf einen
+    # Termin/Aktenzeichen enthält, wird als ein Datensatz behandelt.
+    rows = soup.find_all("tr")
+    if not rows:
+        logger.warning("zvg-portal.de: Keine Tabellenzeilen in den Suchergebnissen gefunden.")
+        logger.info("DIAGNOSE zvg-portal.de: Antwort-Ausschnitt (erste 500 Zeichen des sichtbaren Texts): %r", soup.get_text(separator=" ", strip=True)[:500])
+        return []
+
+    diag_zaehler = 0
+    for row in rows:
+        link = row.find("a", href=True)
+        row_text = html.unescape(row.get_text(separator=" | ", strip=True))
+        if not row_text or len(row_text) < 10:
+            continue
+
+        if diag_zaehler < 3:
+            logger.info("DIAGNOSE zvg-portal.de Zeile #%d: %r", diag_zaehler + 1, row_text[:300])
+            diag_zaehler += 1
+
+        verkehrswert = None
+        vw_match = VERKEHRSWERT_RE.search(row_text)
+        if vw_match:
+            try:
+                verkehrswert = float(vw_match.group(1).replace(".", "").replace(",", "."))
+            except ValueError:
+                pass
+
+        termin_match = TERMIN_DATUM_RE.search(row_text)
+        termin = termin_match.group(1) if termin_match else None
+
+        plz_match = PLZ_RE.search(row_text)
+        plz = plz_match.group(1) if plz_match else None
+
+        detail_url = None
+        if link:
+            href = link["href"]
+            detail_url = href if href.startswith("http") else f"{BASE_URL}/{href.lstrip('/')}"
+
+        # Nur Zeilen aufnehmen, die plausibel ein Objekt-Datensatz sind
+        # (Verkehrswert oder Termin oder Detail-Link vorhanden)
+        if not (verkehrswert or termin or detail_url):
+            continue
+
+        objekte.append({
+            "quelle": "zvg-portal.de",
+            "quelle_id": (detail_url or row_text[:50]),
+            "titel": row_text[:200],
+            "url": detail_url or SEARCH_FORM_URL,
+            "kaufpreis": None,  # ZV hat keinen Kaufpreis, sondern Verkehrswert
+            "verkehrswert": verkehrswert,
+            "termin": termin,
+            "plz": plz,
+            # Der Rohtext der Zeile enthält Ort/Lage-Angaben, auch wenn wir
+            # sie nicht sauber isolieren können. filters.bestimme_kategorie()
+            # sucht "augsburg"/Gemeindenamen als Teilstring - das funktioniert
+            # auch gegen den Rohtext. Mit ort=None würde JEDES Objekt hier
+            # fälschlich rausgefiltert werden, da die Kategorie-Erkennung
+            # sonst nichts zum Prüfen hätte.
+            "ort": row_text,
+            "ortsteil": None,
+            "zimmer": None,
+            "flaeche_qm": None,
+            "baujahr": None,
+            "energieeffizienzklasse": None,
+            "objekttyp": "Eigentumswohnung",
+        })
+
+    return objekte
 
 
 def scrape() -> list[dict]:
-    """
-    Scraped beide Kategorien (Stadt/Land) und gibt eine Liste von
-    Objekt-dicts zurück. Wirft keine Exception bei Einzelfehlern einer
-    Kategorie, sondern loggt und macht mit der anderen weiter - ein Fehler
-    bei "land" soll nicht den kompletten Scan abbrechen.
-    """
-    alle_objekte: list[dict] = []
+    session = requests.Session()
+    session.headers.update(HEADERS)
 
-    for kategorie, url in SEARCH_URLS.items():
-        try:
-            raw_html = _fetch(url)
-        except requests.RequestException as e:
-            logger.error("ohne-makler.net (%s): Request fehlgeschlagen: %s", kategorie, e)
-            continue
+    try:
+        resp = session.get(SEARCH_FORM_URL, timeout=REQUEST_TIMEOUT)
+        resp.raise_for_status()
+    except requests.RequestException as e:
+        logger.error("zvg-portal.de: Suchformular konnte nicht geladen werden: %s", e)
+        return []
 
-        soup = BeautifulSoup(raw_html, "html.parser")
-        gefunden_ids = set()
-        diag_zaehler = 0
+    soup = BeautifulSoup(resp.text, "html.parser")
+    built = _build_search_params(soup)
+    if built is None:
+        logger.error("zvg-portal.de: Suchparameter konnten nicht ermittelt werden, überspringe Quelle.")
+        return []
 
-        for link in soup.find_all("a", href=LISTING_LINK_RE):
-            match = LISTING_LINK_RE.search(link.get("href", ""))
-            if not match:
-                continue
-            listing_id = match.group(1)
-            if listing_id in gefunden_ids:
-                continue
-            gefunden_ids.add(listing_id)
+    action, method, fields = built
+    logger.info("zvg-portal.de: Suche wird ausgeführt (%s %s)", method, action)
 
-            # Laut Live-Diagnose steht der eigentliche Objekttext (Titel,
-            # Preis, PLZ, Ort, Zimmer, Fläche) im alt-Attribut des Bildes
-            # innerhalb des Links, nicht als sichtbarer Fließtext daneben.
-            # Fallback auf den sichtbaren Linktext, falls kein Bild/alt da ist.
-            img = link.find("img")
-            alt_text = (img.get("alt", "") if img else "") or ""
-            sichtbarer_text = link.get_text(separator=" ", strip=True)
-            text_quelle = alt_text if len(alt_text) > len(sichtbarer_text) else sichtbarer_text
-            text_quelle = html.unescape(text_quelle)
-            text_quelle = re.sub(r"\s+", " ", text_quelle).strip()
+    try:
+        if method == "POST":
+            result_resp = session.post(action, data=fields, timeout=REQUEST_TIMEOUT)
+        else:
+            result_resp = session.get(action, params=fields, timeout=REQUEST_TIMEOUT)
+        result_resp.raise_for_status()
+    except requests.RequestException as e:
+        logger.error("zvg-portal.de: Suchanfrage fehlgeschlagen: %s", e)
+        return []
 
-            listing_url = f"{BASE_URL}/immobilie/{listing_id}/"
-            obj = _parse_listing_block(text_quelle, listing_id, listing_url, kategorie)
-
-            if diag_zaehler < 2:
-                logger.info(
-                    "DIAGNOSE ohne-makler.net Objekt #%d: alt_text=%r sichtbarer_text=%r -> gewählt=%r",
-                    diag_zaehler + 1, alt_text[:150], sichtbarer_text[:150], text_quelle[:150],
-                )
-                diag_zaehler += 1
-
-            if obj and obj.titel:
-                alle_objekte.append(obj.to_dict())
-
-        logger.info("ohne-makler.net (%s): %d Objekte gefunden", kategorie, len(gefunden_ids))
-        time.sleep(DELAY_BETWEEN_REQUESTS)
-
-    return alle_objekte
+    logger.info("zvg-portal.de: Ergebnis-URL nach Suche: %s", result_resp.url)
+    objekte = _extract_listings(result_resp.text)
+    logger.info("zvg-portal.de: %d Datensätze extrahiert (vor Geo-Filterung)", len(objekte))
+    return objekte
 
 
 if __name__ == "__main__":
     logging.basicConfig(level=logging.INFO)
     ergebnisse = scrape()
     print(f"\n{len(ergebnisse)} Objekte gefunden:\n")
-    for o in ergebnisse:
+    for o in ergebnisse[:10]:
         print(o)
