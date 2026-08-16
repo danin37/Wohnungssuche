@@ -1,7 +1,33 @@
 {
+  "ohne-makler.net::474393": {
+    "baujahr": null,
+    "bild_url": "https://media.ohne-makler.net/rs:fill:488:288/q:90/czM6Ly9vbS1saXN0aW5ncy91cGxvYWQvcGljdHVyZXMvT00vNDc0MzkzLzZhYjc5cmxj?sig=wZonfZ4IkuCFoC-7vlbnBBQTF7fSYGitf_l_6t8gyRM&exp=1786901440",
+    "energieeffizienzklasse": null,
+    "erstmals_gesehen": "2026-08-16",
+    "flaeche_qm": 62.0,
+    "kaufpreis": 295000.0,
+    "objekttyp": "Wohnung",
+    "ort": "Augsburg",
+    "ortsteil": "Spickel-Herrenbach",
+    "plz": "86161",
+    "preisaenderung": null,
+    "quelle": "ohne-makler.net",
+    "quelle_id": "474393",
+    "status": [
+      "neu"
+    ],
+    "titel": "2-Zimmer-Wohnung in Augsburg-Herrenbach – kernsaniert, Balkon, Weitblick, bezugsfertig",
+    "url": "https://www.ohne-makler.net/immobilie/474393/",
+    "warnungen": [
+      "Baujahr unbekannt",
+      "Energieeffizienzklasse unbekannt"
+    ],
+    "zimmer": 2.0,
+    "zuletzt_gesehen": "2026-08-16"
+  },
   "ohne-makler.net::474655": {
     "baujahr": null,
-    "bild_url": "https://media.ohne-makler.net/rs:fill:488:288/q:90/czM6Ly9vbS1saXN0aW5ncy91cGxvYWQvcGljdHVyZXMvT00vNDc0NjU1L2o1MTZ2bXJq?sig=VvQNECnD2m-n5h7aX0yAhx0m8ZdSxNno2m1bvLVlWAw&exp=1786814801",
+    "bild_url": "https://media.ohne-makler.net/rs:fill:488:288/q:90/czM6Ly9vbS1saXN0aW5ncy91cGxvYWQvcGljdHVyZXMvT00vNDc0NjU1L2o1MTZ2bXJq?sig=H-qwHL-kSO7D1KGRFS2Fsb0cJOFS0BVtL9Y7ukgYqtw&exp=1786901440",
     "energieeffizienzklasse": null,
     "erstmals_gesehen": "2026-08-13",
     "flaeche_qm": 50.0,
@@ -23,11 +49,11 @@
       "Energieeffizienzklasse unbekannt"
     ],
     "zimmer": 3.0,
-    "zuletzt_gesehen": "2026-08-15"
+    "zuletzt_gesehen": "2026-08-16"
   },
   "ohne-makler.net::476133": {
     "baujahr": null,
-    "bild_url": "https://media.ohne-makler.net/rs:fill:488:288/q:90/czM6Ly9vbS1saXN0aW5ncy91cGxvYWQvcGljdHVyZXMvT00vNDc2MTMzL3VoYWt0b3c1?sig=f3YBbi4rqSHLL78imgDL90zvs76qgwmjzJV95pNt3M0&exp=1786814801",
+    "bild_url": "https://media.ohne-makler.net/rs:fill:488:288/q:90/czM6Ly9vbS1saXN0aW5ncy91cGxvYWQvcGljdHVyZXMvT00vNDc2MTMzL3VoYWt0b3c1?sig=yL0tM9PRPYvI6YjUD-B5KqgTRPVVFmtsuf7GGYcQSzo&exp=1786901440",
     "energieeffizienzklasse": null,
     "erstmals_gesehen": "2026-08-13",
     "flaeche_qm": 29.0,
@@ -49,11 +75,11 @@
       "Energieeffizienzklasse unbekannt"
     ],
     "zimmer": 2.0,
-    "zuletzt_gesehen": "2026-08-15"
+    "zuletzt_gesehen": "2026-08-16"
   },
   "ohne-makler.net::482210": {
     "baujahr": null,
-    "bild_url": "https://media.ohne-makler.net/rs:fill:488:288/q:90/czM6Ly9vbS1saXN0aW5ncy91cGxvYWQvcGljdHVyZXMvT00vNDgyMjEwL2lrY3BvcDdo?sig=zPD6totuq9qZwB997fTaYGVJJMzxvf6kkDrrV9u7UCc&exp=1786814801",
+    "bild_url": "https://media.ohne-makler.net/rs:fill:488:288/q:90/czM6Ly9vbS1saXN0aW5ncy91cGxvYWQvcGljdHVyZXMvT00vNDgyMjEwL2lrY3BvcDdo?sig=kTzOOKWYsC1oJLmOLoNLnFBbYkMgWwAUCdQ4r_hjVXQ&exp=1786901440",
     "energieeffizienzklasse": null,
     "erstmals_gesehen": "2026-08-13",
     "flaeche_qm": 70.15,
@@ -75,11 +101,11 @@
       "Energieeffizienzklasse unbekannt"
     ],
     "zimmer": 2.0,
-    "zuletzt_gesehen": "2026-08-15"
+    "zuletzt_gesehen": "2026-08-16"
   },
   "ohne-makler.net::482302": {
     "baujahr": null,
-    "bild_url": "https://media.ohne-makler.net/rs:fill:488:288/q:90/czM6Ly9vbS1saXN0aW5ncy91cGxvYWQvcGljdHVyZXMvT00vNDgyMzAyL3hpdmpxdm1s?sig=QMxwPq-Zt3DZkKojF7yVJekQaB8HFGLZ6GoTxSlWUHs&exp=1786814801",
+    "bild_url": "https://media.ohne-makler.net/rs:fill:488:288/q:90/czM6Ly9vbS1saXN0aW5ncy91cGxvYWQvcGljdHVyZXMvT00vNDgyMzAyL3hpdmpxdm1s?sig=cW7DZ64LRYk1CpWGh6o6nA0zY3EC8amofIGpcegcwcU&exp=1786901440",
     "energieeffizienzklasse": null,
     "erstmals_gesehen": "2026-08-13",
     "flaeche_qm": 64.0,
@@ -101,11 +127,11 @@
       "Energieeffizienzklasse unbekannt"
     ],
     "zimmer": 3.0,
-    "zuletzt_gesehen": "2026-08-15"
+    "zuletzt_gesehen": "2026-08-16"
   },
   "ohne-makler.net::485077": {
     "baujahr": null,
-    "bild_url": "https://media.ohne-makler.net/rs:fill:488:288/q:90/czM6Ly9vbS1saXN0aW5ncy91cGxvYWQvcGljdHVyZXMvT00vNDg1MDc3L29zdTR3azN5?sig=3O5ysjEZT4_swk7qqIvXnPO8T_Tw_GcwHArWznVOxEM&exp=1786814806",
+    "bild_url": "https://media.ohne-makler.net/rs:fill:488:288/q:90/czM6Ly9vbS1saXN0aW5ncy91cGxvYWQvcGljdHVyZXMvT00vNDg1MDc3L29zdTR3azN5?sig=HkVQyJoee18Pz7ekYeG6t7TNwTeSjbFYwy8YmCfB0co&exp=1786901444",
     "energieeffizienzklasse": null,
     "erstmals_gesehen": "2026-08-15",
     "flaeche_qm": 48.0,
@@ -118,7 +144,7 @@
     "quelle": "ohne-makler.net",
     "quelle_id": "485077",
     "status": [
-      "neu"
+      "unveraendert"
     ],
     "titel": "Charmante 1,5-Zimmer-Wohnung mit Terrasse – provisionsfrei",
     "url": "https://www.ohne-makler.net/immobilie/485077/",
@@ -127,6 +153,6 @@
       "Energieeffizienzklasse unbekannt"
     ],
     "zimmer": 1.5,
-    "zuletzt_gesehen": "2026-08-15"
+    "zuletzt_gesehen": "2026-08-16"
   }
 }
