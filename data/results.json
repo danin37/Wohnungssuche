@@ -1,7 +1,7 @@
 {
   "ohne-makler.net::338364": {
     "baujahr": null,
-    "bild_url": "https://media.ohne-makler.net/rs:fill:488:288/q:90/czM6Ly9vbS1saXN0aW5ncy91cGxvYWQvcGljdHVyZXMvT00vMzM4MzY0L2R0Zmp3azhu?sig=dBPctnpzR22PbMLqVTkqe4MJfXP_XrmEiWFs8-ybbV0&exp=1790286304",
+    "bild_url": "https://media.ohne-makler.net/rs:fill:488:288/q:90/czM6Ly9vbS1saXN0aW5ncy91cGxvYWQvcGljdHVyZXMvT00vMzM4MzY0L2R0Zmp3azhu?sig=DjXCjOlfoLMYISQbgQt7t7QX9Coh1nOKiwO_QDcGxdM&exp=1790373791",
     "energieeffizienzklasse": null,
     "erstmals_gesehen": "2026-09-06",
     "flaeche_qm": 72.0,
@@ -23,11 +23,11 @@
       "Energieeffizienzklasse unbekannt"
     ],
     "zimmer": 3.0,
-    "zuletzt_gesehen": "2026-09-24"
+    "zuletzt_gesehen": "2026-09-25"
   },
   "ohne-makler.net::482210": {
     "baujahr": null,
-    "bild_url": "https://media.ohne-makler.net/rs:fill:488:288/q:90/czM6Ly9vbS1saXN0aW5ncy91cGxvYWQvcGljdHVyZXMvT00vNDgyMjEwL2lrY3BvcDdo?sig=_PuzqifDQ75LVSXACF04igE3chr0d-WNnP4sbETM8K4&exp=1790286304",
+    "bild_url": "https://media.ohne-makler.net/rs:fill:488:288/q:90/czM6Ly9vbS1saXN0aW5ncy91cGxvYWQvcGljdHVyZXMvT00vNDgyMjEwL2lrY3BvcDdo?sig=M7BpFF2QjuWoXyjkcjoxGbB7NT8pVVDYb1AS79qKU-c&exp=1790373791",
     "energieeffizienzklasse": null,
     "erstmals_gesehen": "2026-08-13",
     "flaeche_qm": 70.15,
@@ -49,11 +49,37 @@
       "Energieeffizienzklasse unbekannt"
     ],
     "zimmer": 2.0,
-    "zuletzt_gesehen": "2026-09-24"
+    "zuletzt_gesehen": "2026-09-25"
+  },
+  "ohne-makler.net::487605": {
+    "baujahr": null,
+    "bild_url": "https://media.ohne-makler.net/rs:fill:488:288/q:90/czM6Ly9vbS1saXN0aW5ncy91cGxvYWQvcGljdHVyZXMvT00vNDg3NjA1L2Vnd255dTYx?sig=x961XObys46ThBDeAK1K9LN3eoa7Foncvsklqj-1vsY&exp=1790373796",
+    "energieeffizienzklasse": null,
+    "erstmals_gesehen": "2026-09-25",
+    "flaeche_qm": 66.27,
+    "kaufpreis": 288000.0,
+    "objekttyp": "Wohnung",
+    "ort": "Aystetten",
+    "ortsteil": null,
+    "plz": "86483",
+    "preisaenderung": null,
+    "quelle": "ohne-makler.net",
+    "quelle_id": "487605",
+    "status": [
+      "neu"
+    ],
+    "titel": "Sonniges Zuhause mit Südbalkon - 2-Zimmer-Wohnung zum Selbstbezug - Provisonsfrei",
+    "url": "https://www.ohne-makler.net/immobilie/487605/",
+    "warnungen": [
+      "Baujahr unbekannt",
+      "Energieeffizienzklasse unbekannt"
+    ],
+    "zimmer": 2.0,
+    "zuletzt_gesehen": "2026-09-25"
   },
   "ohne-makler.net::493456": {
     "baujahr": null,
-    "bild_url": "https://media.ohne-makler.net/rs:fill:488:288/q:90/czM6Ly9vbS1saXN0aW5ncy91cGxvYWQvcGljdHVyZXMvT00vNDkzNDU2L2tuNjlmcDFp?sig=5JagtgTYTi-wgQiUMQ5Ce6y97H0SD47SbyT4EDeo8Kk&exp=1790286304",
+    "bild_url": "https://media.ohne-makler.net/rs:fill:488:288/q:90/czM6Ly9vbS1saXN0aW5ncy91cGxvYWQvcGljdHVyZXMvT00vNDkzNDU2L2tuNjlmcDFp?sig=irogzPOK6g3Bf3T6eLg_aaDBwgBvJN8MRDLvcV3UoTc&exp=1790373791",
     "energieeffizienzklasse": null,
     "erstmals_gesehen": "2026-09-10",
     "flaeche_qm": 60.0,
@@ -75,11 +101,11 @@
       "Energieeffizienzklasse unbekannt"
     ],
     "zimmer": 3.0,
-    "zuletzt_gesehen": "2026-09-24"
+    "zuletzt_gesehen": "2026-09-25"
   },
   "ohne-makler.net::495221": {
     "baujahr": null,
-    "bild_url": "https://media.ohne-makler.net/rs:fill:488:288/q:90/czM6Ly9vbS1saXN0aW5ncy91cGxvYWQvcGljdHVyZXMvT00vNDk1MjIxL3lpM3A1d2tx?sig=ClQmSR_NK70jdwvZSBWId9SsOHJSUIhXydB_ooJ1DCQ&exp=1790286304",
+    "bild_url": "https://media.ohne-makler.net/rs:fill:488:288/q:90/czM6Ly9vbS1saXN0aW5ncy91cGxvYWQvcGljdHVyZXMvT00vNDk1MjIxL3lpM3A1d2tx?sig=-qiAipuQklPwlMKzjxvt3x3kPxVV0SUfbvHxPtoNGAw&exp=1790373791",
     "energieeffizienzklasse": null,
     "erstmals_gesehen": "2026-09-15",
     "flaeche_qm": 62.0,
@@ -101,11 +127,11 @@
       "Energieeffizienzklasse unbekannt"
     ],
     "zimmer": 2.0,
-    "zuletzt_gesehen": "2026-09-24"
+    "zuletzt_gesehen": "2026-09-25"
   },
   "ohne-makler.net::497871": {
     "baujahr": null,
-    "bild_url": "https://media.ohne-makler.net/rs:fill:488:288/q:90/czM6Ly9vbS1saXN0aW5ncy91cGxvYWQvcGljdHVyZXMvT00vNDk3ODcxL2FxamVlamlw?sig=oIEb56DZWr-PssAYbxaXnvzcb2TstCxSovLg6LBbWC8&exp=1790286308",
+    "bild_url": "https://media.ohne-makler.net/rs:fill:488:288/q:90/czM6Ly9vbS1saXN0aW5ncy91cGxvYWQvcGljdHVyZXMvT00vNDk3ODcxL2FxamVlamlw?sig=Ni06UjXNXRReA5oc-f6_YAfErCJUVE3uAn2LNm9DQ4A&exp=1790373796",
     "energieeffizienzklasse": null,
     "erstmals_gesehen": "2026-09-23",
     "flaeche_qm": 67.0,
@@ -127,6 +153,6 @@
       "Energieeffizienzklasse unbekannt"
     ],
     "zimmer": 3.0,
-    "zuletzt_gesehen": "2026-09-24"
+    "zuletzt_gesehen": "2026-09-25"
   }
 }
