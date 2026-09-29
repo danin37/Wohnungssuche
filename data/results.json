@@ -1,7 +1,7 @@
 {
   "ohne-makler.net::338364": {
     "baujahr": null,
-    "bild_url": "https://media.ohne-makler.net/rs:fill:488:288/q:90/czM6Ly9vbS1saXN0aW5ncy91cGxvYWQvcGljdHVyZXMvT00vMzM4MzY0L2R0Zmp3azhu?sig=jJqPkemwMAX_EPIJ2fm6SQgwI-A8ptfZq2NXVGXqy6s&exp=1790638294",
+    "bild_url": "https://media.ohne-makler.net/rs:fill:488:288/q:90/czM6Ly9vbS1saXN0aW5ncy91cGxvYWQvcGljdHVyZXMvT00vMzM4MzY0L2R0Zmp3azhu?sig=fzZrWWOtwE8Ft2urF2quKPOGCQIui5R-I3Dk97Y5gbo&exp=1790723480",
     "energieeffizienzklasse": null,
     "erstmals_gesehen": "2026-09-06",
     "flaeche_qm": 72.0,
@@ -23,11 +23,11 @@
       "Energieeffizienzklasse unbekannt"
     ],
     "zimmer": 3.0,
-    "zuletzt_gesehen": "2026-09-28"
+    "zuletzt_gesehen": "2026-09-29"
   },
   "ohne-makler.net::482210": {
     "baujahr": null,
-    "bild_url": "https://media.ohne-makler.net/rs:fill:488:288/q:90/czM6Ly9vbS1saXN0aW5ncy91cGxvYWQvcGljdHVyZXMvT00vNDgyMjEwL2lrY3BvcDdo?sig=bqizLKtcKPZzeAhL3r9pRZERfUvZN1MO-FHX4mePD0w&exp=1790638294",
+    "bild_url": "https://media.ohne-makler.net/rs:fill:488:288/q:90/czM6Ly9vbS1saXN0aW5ncy91cGxvYWQvcGljdHVyZXMvT00vNDgyMjEwL2lrY3BvcDdo?sig=6H6Y3FaagTD8npALDVoXV3Vqh9QP2ELMKEWt_x5G1GM&exp=1790723480",
     "energieeffizienzklasse": null,
     "erstmals_gesehen": "2026-08-13",
     "flaeche_qm": 70.15,
@@ -49,11 +49,11 @@
       "Energieeffizienzklasse unbekannt"
     ],
     "zimmer": 2.0,
-    "zuletzt_gesehen": "2026-09-28"
+    "zuletzt_gesehen": "2026-09-29"
   },
   "ohne-makler.net::487605": {
     "baujahr": null,
-    "bild_url": "https://media.ohne-makler.net/rs:fill:488:288/q:90/czM6Ly9vbS1saXN0aW5ncy91cGxvYWQvcGljdHVyZXMvT00vNDg3NjA1L2Vnd255dTYx?sig=AYiKf7ZSA7EYU7asNyH-ANBgVdbbMFqO9IB65WnnLKc&exp=1790638298",
+    "bild_url": "https://media.ohne-makler.net/rs:fill:488:288/q:90/czM6Ly9vbS1saXN0aW5ncy91cGxvYWQvcGljdHVyZXMvT00vNDg3NjA1L2Vnd255dTYx?sig=Ld5143EHc-d3QuFNPNFDp12pDZQnlfScxzUX-12EJBs&exp=1790723484",
     "energieeffizienzklasse": null,
     "erstmals_gesehen": "2026-09-25",
     "flaeche_qm": 66.27,
@@ -75,24 +75,27 @@
       "Energieeffizienzklasse unbekannt"
     ],
     "zimmer": 2.0,
-    "zuletzt_gesehen": "2026-09-28"
+    "zuletzt_gesehen": "2026-09-29"
   },
   "ohne-makler.net::493456": {
     "baujahr": null,
-    "bild_url": "https://media.ohne-makler.net/rs:fill:488:288/q:90/czM6Ly9vbS1saXN0aW5ncy91cGxvYWQvcGljdHVyZXMvT00vNDkzNDU2L2tuNjlmcDFp?sig=Q1zmnZpdXZWPf3ySe7XOISRlmGybfyHCUiaTAqml58Y&exp=1790638294",
+    "bild_url": "https://media.ohne-makler.net/rs:fill:488:288/q:90/czM6Ly9vbS1saXN0aW5ncy91cGxvYWQvcGljdHVyZXMvT00vNDkzNDU2L2tuNjlmcDFp?sig=Fr7GG5ZZmI1-GaKcrO57scB2RQqC28zsa3-zS_9ahp0&exp=1790723480",
     "energieeffizienzklasse": null,
     "erstmals_gesehen": "2026-09-10",
     "flaeche_qm": 60.0,
-    "kaufpreis": 280000.0,
+    "kaufpreis": 269000.0,
     "objekttyp": "Wohnung",
     "ort": "Augsburg",
     "ortsteil": "Göggingen",
     "plz": "86199",
-    "preisaenderung": null,
+    "preisaenderung": {
+      "differenz": 11000.0,
+      "prozent": 3.9
+    },
     "quelle": "ohne-makler.net",
     "quelle_id": "493456",
     "status": [
-      "unveraendert"
+      "preisreduktion"
     ],
     "titel": "Provisionsfrei - 3ZKB in Göggingen mit Balkon und Stellplatz",
     "url": "https://www.ohne-makler.net/immobilie/493456/",
@@ -101,11 +104,11 @@
       "Energieeffizienzklasse unbekannt"
     ],
     "zimmer": 3.0,
-    "zuletzt_gesehen": "2026-09-28"
+    "zuletzt_gesehen": "2026-09-29"
   },
   "ohne-makler.net::495221": {
     "baujahr": null,
-    "bild_url": "https://media.ohne-makler.net/rs:fill:488:288/q:90/czM6Ly9vbS1saXN0aW5ncy91cGxvYWQvcGljdHVyZXMvT00vNDk1MjIxL3lpM3A1d2tx?sig=A-8H04EU4vZNQwgsSY88IywvT27hlp0lduHR3nPBje8&exp=1790638294",
+    "bild_url": "https://media.ohne-makler.net/rs:fill:488:288/q:90/czM6Ly9vbS1saXN0aW5ncy91cGxvYWQvcGljdHVyZXMvT00vNDk1MjIxL3lpM3A1d2tx?sig=w2ffmO6VmXxXzMu5tKQVSmDZljqtGt4Fxu8qck1uxHw&exp=1790723480",
     "energieeffizienzklasse": null,
     "erstmals_gesehen": "2026-09-15",
     "flaeche_qm": 62.0,
@@ -127,11 +130,11 @@
       "Energieeffizienzklasse unbekannt"
     ],
     "zimmer": 2.0,
-    "zuletzt_gesehen": "2026-09-28"
+    "zuletzt_gesehen": "2026-09-29"
   },
   "ohne-makler.net::497871": {
     "baujahr": null,
-    "bild_url": "https://media.ohne-makler.net/rs:fill:488:288/q:90/czM6Ly9vbS1saXN0aW5ncy91cGxvYWQvcGljdHVyZXMvT00vNDk3ODcxL2FxamVlamlw?sig=hVLMVPpD8btqxhklMU9lmTbn6jJwcBvdAjWOvTG7GeU&exp=1790638298",
+    "bild_url": "https://media.ohne-makler.net/rs:fill:488:288/q:90/czM6Ly9vbS1saXN0aW5ncy91cGxvYWQvcGljdHVyZXMvT00vNDk3ODcxL2FxamVlamlw?sig=SZ41FkuRogUq7N7kNfnkqLN9Sy9_uizHB5LCxhUT7Yw&exp=1790723484",
     "energieeffizienzklasse": null,
     "erstmals_gesehen": "2026-09-23",
     "flaeche_qm": 67.0,
@@ -153,6 +156,6 @@
       "Energieeffizienzklasse unbekannt"
     ],
     "zimmer": 3.0,
-    "zuletzt_gesehen": "2026-09-28"
+    "zuletzt_gesehen": "2026-09-29"
   }
 }
