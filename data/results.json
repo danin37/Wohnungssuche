@@ -1,33 +1,7 @@
 {
-  "ohne-makler.net::338364": {
-    "baujahr": null,
-    "bild_url": "https://media.ohne-makler.net/rs:fill:488:288/q:90/czM6Ly9vbS1saXN0aW5ncy91cGxvYWQvcGljdHVyZXMvT00vMzM4MzY0L2R0Zmp3azhu?sig=-f2VlRDmTL_6r2yS0L3mIgDlwEGKcn-FhGP1JktcUSk&exp=1791245200",
-    "energieeffizienzklasse": null,
-    "erstmals_gesehen": "2026-09-06",
-    "flaeche_qm": 72.0,
-    "kaufpreis": 239000.0,
-    "objekttyp": "Wohnung",
-    "ort": "Augsburg",
-    "ortsteil": "Göggingen",
-    "plz": "86199",
-    "preisaenderung": null,
-    "quelle": "ohne-makler.net",
-    "quelle_id": "338364",
-    "status": [
-      "unveraendert"
-    ],
-    "titel": "Möblierte Wohlfühloase in Augsburg-Göggingen – Perfekt als Ferienwohnung",
-    "url": "https://www.ohne-makler.net/immobilie/338364/",
-    "warnungen": [
-      "Baujahr unbekannt",
-      "Energieeffizienzklasse unbekannt"
-    ],
-    "zimmer": 3.0,
-    "zuletzt_gesehen": "2026-10-05"
-  },
   "ohne-makler.net::482210": {
     "baujahr": null,
-    "bild_url": "https://media.ohne-makler.net/rs:fill:488:288/q:90/czM6Ly9vbS1saXN0aW5ncy91cGxvYWQvcGljdHVyZXMvT00vNDgyMjEwL2lrY3BvcDdo?sig=hbA4Y0f7vng3Um79McqfDjjim0PYeqD5RXDYitlSeek&exp=1791245200",
+    "bild_url": "https://media.ohne-makler.net/rs:fill:488:288/q:90/czM6Ly9vbS1saXN0aW5ncy91cGxvYWQvcGljdHVyZXMvT00vNDgyMjEwL2lrY3BvcDdo?sig=McR74k-hm8LxUyditPINPca3sxIUK_Eh7ojSf65Zf7k&exp=1791330671",
     "energieeffizienzklasse": null,
     "erstmals_gesehen": "2026-08-13",
     "flaeche_qm": 70.15,
@@ -49,11 +23,11 @@
       "Energieeffizienzklasse unbekannt"
     ],
     "zimmer": 2.0,
-    "zuletzt_gesehen": "2026-10-05"
+    "zuletzt_gesehen": "2026-10-06"
   },
   "ohne-makler.net::487605": {
     "baujahr": null,
-    "bild_url": "https://media.ohne-makler.net/rs:fill:488:288/q:90/czM6Ly9vbS1saXN0aW5ncy91cGxvYWQvcGljdHVyZXMvT00vNDg3NjA1L2Vnd255dTYx?sig=ifWR3Bl8QJpoC1l7eyoxZ_bB7hgAqoEuTqK_uBKTi3w&exp=1791245204",
+    "bild_url": "https://media.ohne-makler.net/rs:fill:488:288/q:90/czM6Ly9vbS1saXN0aW5ncy91cGxvYWQvcGljdHVyZXMvT00vNDg3NjA1L2Vnd255dTYx?sig=GDg29TibsDVMBIhYL4YTlgoyh_OEf7t9pvZBrMNMJOk&exp=1791330676",
     "energieeffizienzklasse": null,
     "erstmals_gesehen": "2026-09-25",
     "flaeche_qm": 66.27,
@@ -75,11 +49,11 @@
       "Energieeffizienzklasse unbekannt"
     ],
     "zimmer": 2.0,
-    "zuletzt_gesehen": "2026-10-05"
+    "zuletzt_gesehen": "2026-10-06"
   },
   "ohne-makler.net::487655": {
     "baujahr": null,
-    "bild_url": "https://media.ohne-makler.net/rs:fill:488:288/q:90/czM6Ly9vbS1saXN0aW5ncy91cGxvYWQvcGljdHVyZXMvT00vNDg3NjU1L3djMHZmcHNp?sig=BhkMJGjLbpxNyEFChktwtnK5NPLzTXEJVTJRjru1Q4E&exp=1791245200",
+    "bild_url": "https://media.ohne-makler.net/rs:fill:488:288/q:90/czM6Ly9vbS1saXN0aW5ncy91cGxvYWQvcGljdHVyZXMvT00vNDg3NjU1L3djMHZmcHNp?sig=BNd1rgO0d_UZzYt9RJgStbLV0OhV_ajJrRk1dXO8V5Q&exp=1791330671",
     "energieeffizienzklasse": null,
     "erstmals_gesehen": "2026-10-05",
     "flaeche_qm": 54.0,
@@ -92,7 +66,7 @@
     "quelle": "ohne-makler.net",
     "quelle_id": "487655",
     "status": [
-      "neu"
+      "unveraendert"
     ],
     "titel": "Möblierte Wohnung, Pool & Sorglos-Investment in Augsburg-Göggingen",
     "url": "https://www.ohne-makler.net/immobilie/487655/",
@@ -101,11 +75,11 @@
       "Energieeffizienzklasse unbekannt"
     ],
     "zimmer": 2.5,
-    "zuletzt_gesehen": "2026-10-05"
+    "zuletzt_gesehen": "2026-10-06"
   },
   "ohne-makler.net::493456": {
     "baujahr": null,
-    "bild_url": "https://media.ohne-makler.net/rs:fill:488:288/q:90/czM6Ly9vbS1saXN0aW5ncy91cGxvYWQvcGljdHVyZXMvT00vNDkzNDU2L2tuNjlmcDFp?sig=-uGIqPo8LUGZPGx9hWbTJhU3rejkIKn0rFSh0kkFCIE&exp=1791245200",
+    "bild_url": "https://media.ohne-makler.net/rs:fill:488:288/q:90/czM6Ly9vbS1saXN0aW5ncy91cGxvYWQvcGljdHVyZXMvT00vNDkzNDU2L2tuNjlmcDFp?sig=6WDMil6O13R-2ieAZ-aPwKCrnkgZ2hTJEAfNeTjGgrI&exp=1791330671",
     "energieeffizienzklasse": null,
     "erstmals_gesehen": "2026-09-10",
     "flaeche_qm": 60.0,
@@ -127,11 +101,11 @@
       "Energieeffizienzklasse unbekannt"
     ],
     "zimmer": 3.0,
-    "zuletzt_gesehen": "2026-10-05"
+    "zuletzt_gesehen": "2026-10-06"
   },
   "ohne-makler.net::495221": {
     "baujahr": null,
-    "bild_url": "https://media.ohne-makler.net/rs:fill:488:288/q:90/czM6Ly9vbS1saXN0aW5ncy91cGxvYWQvcGljdHVyZXMvT00vNDk1MjIxL3lpM3A1d2tx?sig=yBc9FIcJYl-dLc9sxZwiNyORdV1AozpYhMH6zuwJqDA&exp=1791245200",
+    "bild_url": "https://media.ohne-makler.net/rs:fill:488:288/q:90/czM6Ly9vbS1saXN0aW5ncy91cGxvYWQvcGljdHVyZXMvT00vNDk1MjIxL3lpM3A1d2tx?sig=GBsyXlce4iAYUMPGnFv_1Nlvj33DrEo5raVTRIeAPx8&exp=1791330671",
     "energieeffizienzklasse": null,
     "erstmals_gesehen": "2026-09-15",
     "flaeche_qm": 62.0,
@@ -153,24 +127,53 @@
       "Energieeffizienzklasse unbekannt"
     ],
     "zimmer": 2.0,
-    "zuletzt_gesehen": "2026-10-05"
+    "zuletzt_gesehen": "2026-10-06"
+  },
+  "ohne-makler.net::495999": {
+    "baujahr": null,
+    "bild_url": "https://media.ohne-makler.net/rs:fill:488:288/q:90/czM6Ly9vbS1saXN0aW5ncy91cGxvYWQvcGljdHVyZXMvT00vNDk1OTk5L2wyeWg3ZjFo?sig=jjE-1JUtAYsb8MAX_g6zae3mHUN4IyWlMFy7aWgQU1Y&exp=1791330671",
+    "energieeffizienzklasse": null,
+    "erstmals_gesehen": "2026-10-06",
+    "flaeche_qm": 100.0,
+    "kaufpreis": 280000.0,
+    "objekttyp": "Wohnung",
+    "ort": "Augsburg",
+    "ortsteil": "Innenstadt",
+    "plz": "86152",
+    "preisaenderung": null,
+    "quelle": "ohne-makler.net",
+    "quelle_id": "495999",
+    "status": [
+      "neu"
+    ],
+    "titel": "LEERSTEHENDE & Sanierungsbedürftige Wohnung mit Potenzial in Augsburger Top-Lage",
+    "url": "https://www.ohne-makler.net/immobilie/495999/",
+    "warnungen": [
+      "Baujahr unbekannt",
+      "Energieeffizienzklasse unbekannt"
+    ],
+    "zimmer": 3.0,
+    "zuletzt_gesehen": "2026-10-06"
   },
   "ohne-makler.net::497871": {
     "baujahr": null,
-    "bild_url": "https://media.ohne-makler.net/rs:fill:488:288/q:90/czM6Ly9vbS1saXN0aW5ncy91cGxvYWQvcGljdHVyZXMvT00vNDk3ODcxL2FxamVlamlw?sig=EZ1-Jrh4R4tSl6f0hjRKC7qKy2Z6b5Skf_QJwixxoGE&exp=1791245204",
+    "bild_url": "https://media.ohne-makler.net/rs:fill:488:288/q:90/czM6Ly9vbS1saXN0aW5ncy91cGxvYWQvcGljdHVyZXMvT00vNDk3ODcxL2FxamVlamlw?sig=w46nykEWzI2S_-bolMHQj9d27l8tSRhwz3mCVICm7ww&exp=1791330676",
     "energieeffizienzklasse": null,
     "erstmals_gesehen": "2026-09-23",
     "flaeche_qm": 67.0,
-    "kaufpreis": 285000.0,
+    "kaufpreis": 279000.0,
     "objekttyp": "Wohnung",
     "ort": "Neusäß",
     "ortsteil": null,
     "plz": "86356",
-    "preisaenderung": null,
+    "preisaenderung": {
+      "differenz": 6000.0,
+      "prozent": 2.1
+    },
     "quelle": "ohne-makler.net",
     "quelle_id": "497871",
     "status": [
-      "unveraendert"
+      "preisreduktion"
     ],
     "titel": "Frisch sanierte 3 Zimmer-Wohnung Neusäß Westheim LK Augsburg UKA",
     "url": "https://www.ohne-makler.net/immobilie/497871/",
@@ -179,6 +182,6 @@
       "Energieeffizienzklasse unbekannt"
     ],
     "zimmer": 3.0,
-    "zuletzt_gesehen": "2026-10-05"
+    "zuletzt_gesehen": "2026-10-06"
   }
 }
