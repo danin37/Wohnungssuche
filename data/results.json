@@ -1,7 +1,7 @@
 {
   "ohne-makler.net::482210": {
     "baujahr": null,
-    "bild_url": "https://media.ohne-makler.net/rs:fill:488:288/q:90/czM6Ly9vbS1saXN0aW5ncy91cGxvYWQvcGljdHVyZXMvT00vNDgyMjEwL2lrY3BvcDdo?sig=sjLnsHvWkTPlek49EwOsrsW0jxmP2vfWFfcVdlcn2KM&exp=1791852721",
+    "bild_url": "https://media.ohne-makler.net/rs:fill:488:288/q:90/czM6Ly9vbS1saXN0aW5ncy91cGxvYWQvcGljdHVyZXMvT00vNDgyMjEwL2lrY3BvcDdo?sig=_VBRmGS4-0cIkQU9GZKxYrxFC3x7qxLE4l2BnWWGJF0&exp=1791937845",
     "energieeffizienzklasse": null,
     "erstmals_gesehen": "2026-08-13",
     "flaeche_qm": 70.15,
@@ -14,7 +14,7 @@
     "quelle": "ohne-makler.net",
     "quelle_id": "482210",
     "status": [
-      "unveraendert"
+      "lang_online"
     ],
     "titel": "Körnerstraße 8",
     "url": "https://www.ohne-makler.net/immobilie/482210/",
@@ -23,11 +23,11 @@
       "Energieeffizienzklasse unbekannt"
     ],
     "zimmer": 2.0,
-    "zuletzt_gesehen": "2026-10-12"
+    "zuletzt_gesehen": "2026-10-13"
   },
   "ohne-makler.net::487605": {
     "baujahr": null,
-    "bild_url": "https://media.ohne-makler.net/rs:fill:488:288/q:90/czM6Ly9vbS1saXN0aW5ncy91cGxvYWQvcGljdHVyZXMvT00vNDg3NjA1L2Vnd255dTYx?sig=qjR8YzcUtZjLyltOAphhMW7sOssfcF1lVvoVmAozQMM&exp=1791852725",
+    "bild_url": "https://media.ohne-makler.net/rs:fill:488:288/q:90/czM6Ly9vbS1saXN0aW5ncy91cGxvYWQvcGljdHVyZXMvT00vNDg3NjA1L2Vnd255dTYx?sig=_3CPDYmMsCGWBm841tLPYCfcJK5f0i5-193XfBR-XeA&exp=1791937849",
     "energieeffizienzklasse": null,
     "erstmals_gesehen": "2026-09-25",
     "flaeche_qm": 66.27,
@@ -49,11 +49,11 @@
       "Energieeffizienzklasse unbekannt"
     ],
     "zimmer": 2.0,
-    "zuletzt_gesehen": "2026-10-12"
+    "zuletzt_gesehen": "2026-10-13"
   },
   "ohne-makler.net::493456": {
     "baujahr": null,
-    "bild_url": "https://media.ohne-makler.net/rs:fill:488:288/q:90/czM6Ly9vbS1saXN0aW5ncy91cGxvYWQvcGljdHVyZXMvT00vNDkzNDU2L2tuNjlmcDFp?sig=YgR4kWToB0HjlF0xmqx-pTRe4wHeAYoPSaFXuwavBEI&exp=1791852721",
+    "bild_url": "https://media.ohne-makler.net/rs:fill:488:288/q:90/czM6Ly9vbS1saXN0aW5ncy91cGxvYWQvcGljdHVyZXMvT00vNDkzNDU2L2tuNjlmcDFp?sig=fAkZXjv-6gpnacFYgoLO49lC-1kVCBGI1M6CgBXZe0Q&exp=1791937845",
     "energieeffizienzklasse": null,
     "erstmals_gesehen": "2026-09-10",
     "flaeche_qm": 60.0,
@@ -75,11 +75,11 @@
       "Energieeffizienzklasse unbekannt"
     ],
     "zimmer": 3.0,
-    "zuletzt_gesehen": "2026-10-12"
+    "zuletzt_gesehen": "2026-10-13"
   },
   "ohne-makler.net::495221": {
     "baujahr": null,
-    "bild_url": "https://media.ohne-makler.net/rs:fill:488:288/q:90/czM6Ly9vbS1saXN0aW5ncy91cGxvYWQvcGljdHVyZXMvT00vNDk1MjIxL3lpM3A1d2tx?sig=sKZ15AkITyq00Z237WqkAP2ArCbRZ5nLAiKlY5LuwJA&exp=1791852721",
+    "bild_url": "https://media.ohne-makler.net/rs:fill:488:288/q:90/czM6Ly9vbS1saXN0aW5ncy91cGxvYWQvcGljdHVyZXMvT00vNDk1MjIxL3lpM3A1d2tx?sig=jCFoeF0QaQFItVIv0HAIcIbiLalDJVpQtKZk9EB_fRM&exp=1791937845",
     "energieeffizienzklasse": null,
     "erstmals_gesehen": "2026-09-15",
     "flaeche_qm": 62.0,
@@ -101,37 +101,11 @@
       "Energieeffizienzklasse unbekannt"
     ],
     "zimmer": 2.0,
-    "zuletzt_gesehen": "2026-10-12"
-  },
-  "ohne-makler.net::495999": {
-    "baujahr": null,
-    "bild_url": "https://media.ohne-makler.net/rs:fill:488:288/q:90/czM6Ly9vbS1saXN0aW5ncy91cGxvYWQvcGljdHVyZXMvT00vNDk1OTk5L2wyeWg3ZjFo?sig=sCHBDuF2sG4XCnDCTM6NRgzKJBIXpKCtjxwijJN3sE8&exp=1791852721",
-    "energieeffizienzklasse": null,
-    "erstmals_gesehen": "2026-10-06",
-    "flaeche_qm": 100.0,
-    "kaufpreis": 280000.0,
-    "objekttyp": "Wohnung",
-    "ort": "Augsburg",
-    "ortsteil": "Innenstadt",
-    "plz": "86152",
-    "preisaenderung": null,
-    "quelle": "ohne-makler.net",
-    "quelle_id": "495999",
-    "status": [
-      "unveraendert"
-    ],
-    "titel": "LEERSTEHENDE & Sanierungsbedürftige Wohnung mit Potenzial in Augsburger Top-Lage",
-    "url": "https://www.ohne-makler.net/immobilie/495999/",
-    "warnungen": [
-      "Baujahr unbekannt",
-      "Energieeffizienzklasse unbekannt"
-    ],
-    "zimmer": 3.0,
-    "zuletzt_gesehen": "2026-10-12"
+    "zuletzt_gesehen": "2026-10-13"
   },
   "ohne-makler.net::497871": {
     "baujahr": null,
-    "bild_url": "https://media.ohne-makler.net/rs:fill:488:288/q:90/czM6Ly9vbS1saXN0aW5ncy91cGxvYWQvcGljdHVyZXMvT00vNDk3ODcxL2FxamVlamlw?sig=pKUCPgPtpd6vidtJPu-9jMiHVuVf6Hoh2mn0Akwf88U&exp=1791852725",
+    "bild_url": "https://media.ohne-makler.net/rs:fill:488:288/q:90/czM6Ly9vbS1saXN0aW5ncy91cGxvYWQvcGljdHVyZXMvT00vNDk3ODcxL2FxamVlamlw?sig=e0HjABSVyGIa1ZAt-UytgumrWbXTU9Fww7WfiJtivPw&exp=1791937849",
     "energieeffizienzklasse": null,
     "erstmals_gesehen": "2026-09-23",
     "flaeche_qm": 67.0,
@@ -153,11 +127,11 @@
       "Energieeffizienzklasse unbekannt"
     ],
     "zimmer": 3.0,
-    "zuletzt_gesehen": "2026-10-12"
+    "zuletzt_gesehen": "2026-10-13"
   },
   "ohne-makler.net::503300": {
     "baujahr": null,
-    "bild_url": "https://media.ohne-makler.net/rs:fill:488:288/q:90/czM6Ly9vbS1saXN0aW5ncy91cGxvYWQvcGljdHVyZXMvT00vNTAzMzAwL2NtYWZxaDFp?sig=UmAYjXl9iwEDrMcc2NJeI8YdpcOseKuv2p6USAt4rmY&exp=1791852721",
+    "bild_url": "https://media.ohne-makler.net/rs:fill:488:288/q:90/czM6Ly9vbS1saXN0aW5ncy91cGxvYWQvcGljdHVyZXMvT00vNTAzMzAwL2NtYWZxaDFp?sig=RbaPx_0BXYxnsDqXydkd-30f8V1IOVJNIoucMqWR1so&exp=1791937845",
     "energieeffizienzklasse": null,
     "erstmals_gesehen": "2026-10-10",
     "flaeche_qm": 58.0,
@@ -179,11 +153,11 @@
       "Energieeffizienzklasse unbekannt"
     ],
     "zimmer": 2.0,
-    "zuletzt_gesehen": "2026-10-12"
+    "zuletzt_gesehen": "2026-10-13"
   },
   "ohne-makler.net::504027": {
     "baujahr": null,
-    "bild_url": "https://media.ohne-makler.net/rs:fill:488:288/q:90/czM6Ly9vbS1saXN0aW5ncy91cGxvYWQvcGljdHVyZXMvT00vNTA0MDI3LzN1Nmw2bjlt?sig=K0rPVXUp0ET_TNG1NyrHn6VvkIkx5kGQ5YVd42MkeW4&exp=1791852721",
+    "bild_url": "https://media.ohne-makler.net/rs:fill:488:288/q:90/czM6Ly9vbS1saXN0aW5ncy91cGxvYWQvcGljdHVyZXMvT00vNTA0MDI3LzN1Nmw2bjlt?sig=twVUc1o-0Q8ry0D9jnyqcpp5h3rORGmUS7C47HsQMQE&exp=1791937845",
     "energieeffizienzklasse": null,
     "erstmals_gesehen": "2026-10-12",
     "flaeche_qm": 35.0,
@@ -196,7 +170,7 @@
     "quelle": "ohne-makler.net",
     "quelle_id": "504027",
     "status": [
-      "neu"
+      "unveraendert"
     ],
     "titel": "Sanierte und möblierte Wohnung Einzugs- und Provisionsfrei!",
     "url": "https://www.ohne-makler.net/immobilie/504027/",
@@ -205,6 +179,6 @@
       "Energieeffizienzklasse unbekannt"
     ],
     "zimmer": 1.0,
-    "zuletzt_gesehen": "2026-10-12"
+    "zuletzt_gesehen": "2026-10-13"
   }
 }
