@@ -1,7 +1,7 @@
 {
   "ohne-makler.net::338364": {
     "baujahr": null,
-    "bild_url": "https://media.ohne-makler.net/rs:fill:488:288/q:90/czM6Ly9vbS1saXN0aW5ncy91cGxvYWQvcGljdHVyZXMvT00vMzM4MzY0L2R0Zmp3azhu?sig=nMCpCdo3clok1ZMqtqhJPmHC-SONyetWrConrkZMyFA&exp=1794282183",
+    "bild_url": "https://media.ohne-makler.net/rs:fill:488:288/q:90/czM6Ly9vbS1saXN0aW5ncy91cGxvYWQvcGljdHVyZXMvT00vMzM4MzY0L2R0Zmp3azhu?sig=PDQnqUiCUz3IF33lEHh8nmxR2PzJEgsIJn22Z-xrlM8&exp=1794364640",
     "energieeffizienzklasse": null,
     "erstmals_gesehen": "2026-10-17",
     "flaeche_qm": 71.0,
@@ -23,11 +23,37 @@
       "Energieeffizienzklasse unbekannt"
     ],
     "zimmer": 3.0,
-    "zuletzt_gesehen": "2026-11-09"
+    "zuletzt_gesehen": "2026-11-10"
+  },
+  "ohne-makler.net::482210": {
+    "baujahr": null,
+    "bild_url": "https://media.ohne-makler.net/rs:fill:488:288/q:90/czM6Ly9vbS1saXN0aW5ncy91cGxvYWQvcGljdHVyZXMvT00vNDgyMjEwL2lrY3BvcDdo?sig=_Vzg63a7gCxEcb2mzOQSJ_8h2LePKU1NPW_OKPKWGog&exp=1794364640",
+    "energieeffizienzklasse": null,
+    "erstmals_gesehen": "2026-11-10",
+    "flaeche_qm": 70.15,
+    "kaufpreis": 299000.0,
+    "objekttyp": "Wohnung",
+    "ort": "Augsburg",
+    "ortsteil": "Pfersee",
+    "plz": "86157",
+    "preisaenderung": null,
+    "quelle": "ohne-makler.net",
+    "quelle_id": "482210",
+    "status": [
+      "neu"
+    ],
+    "titel": "Körnerstraße 8",
+    "url": "https://www.ohne-makler.net/immobilie/482210/",
+    "warnungen": [
+      "Baujahr unbekannt",
+      "Energieeffizienzklasse unbekannt"
+    ],
+    "zimmer": 2.0,
+    "zuletzt_gesehen": "2026-11-10"
   },
   "ohne-makler.net::487605": {
     "baujahr": null,
-    "bild_url": "https://media.ohne-makler.net/rs:fill:488:288/q:90/czM6Ly9vbS1saXN0aW5ncy91cGxvYWQvcGljdHVyZXMvT00vNDg3NjA1L2pja3RvM2k0?sig=JPZnbyHm2DMBr4rrBYaCwOVd9K19uLf4mdqKS_LBxz0&exp=1794282187",
+    "bild_url": "https://media.ohne-makler.net/rs:fill:488:288/q:90/czM6Ly9vbS1saXN0aW5ncy91cGxvYWQvcGljdHVyZXMvT00vNDg3NjA1L2pja3RvM2k0?sig=4Ro9QZ1D-yAnvpwTH9QHihrpmJB-eMr2e182yDqV_3Y&exp=1794364644",
     "energieeffizienzklasse": null,
     "erstmals_gesehen": "2026-11-03",
     "flaeche_qm": 66.27,
@@ -49,11 +75,11 @@
       "Energieeffizienzklasse unbekannt"
     ],
     "zimmer": 2.0,
-    "zuletzt_gesehen": "2026-11-09"
+    "zuletzt_gesehen": "2026-11-10"
   },
   "ohne-makler.net::504027": {
     "baujahr": null,
-    "bild_url": "https://media.ohne-makler.net/rs:fill:488:288/q:90/czM6Ly9vbS1saXN0aW5ncy91cGxvYWQvcGljdHVyZXMvT00vNTA0MDI3LzN1Nmw2bjlt?sig=gytHkqwTUGiFwmYAhQPHUyaBZtVJfgcLD2-zMyPbacY&exp=1794282183",
+    "bild_url": "https://media.ohne-makler.net/rs:fill:488:288/q:90/czM6Ly9vbS1saXN0aW5ncy91cGxvYWQvcGljdHVyZXMvT00vNTA0MDI3LzN1Nmw2bjlt?sig=qeEq7reYbfNGRU_zRb8KavOUKGTPoZ3P7Se1CeHDSMg&exp=1794364640",
     "energieeffizienzklasse": null,
     "erstmals_gesehen": "2026-10-12",
     "flaeche_qm": 35.0,
@@ -75,11 +101,11 @@
       "Energieeffizienzklasse unbekannt"
     ],
     "zimmer": 1.0,
-    "zuletzt_gesehen": "2026-11-09"
+    "zuletzt_gesehen": "2026-11-10"
   },
   "ohne-makler.net::505133": {
     "baujahr": null,
-    "bild_url": "https://media.ohne-makler.net/rs:fill:488:288/q:90/czM6Ly9vbS1saXN0aW5ncy91cGxvYWQvcGljdHVyZXMvT00vNTA1MTMzL2k0cWMyYWds?sig=qUgeSHQrxk_l7G1c5Duj5cuj-yaQIDf6JMEccTyXr1g&exp=1794282183",
+    "bild_url": "https://media.ohne-makler.net/rs:fill:488:288/q:90/czM6Ly9vbS1saXN0aW5ncy91cGxvYWQvcGljdHVyZXMvT00vNTA1MTMzL2k0cWMyYWds?sig=a5hFPi6ATIbfHPbSQWlNWhZeTRaFHaYTk_rlkzRtdgE&exp=1794364640",
     "energieeffizienzklasse": null,
     "erstmals_gesehen": "2026-10-14",
     "flaeche_qm": 50.0,
@@ -101,6 +127,6 @@
       "Energieeffizienzklasse unbekannt"
     ],
     "zimmer": 3.0,
-    "zuletzt_gesehen": "2026-11-09"
+    "zuletzt_gesehen": "2026-11-10"
   }
 }
