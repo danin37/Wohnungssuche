@@ -1,7 +1,7 @@
 {
   "ohne-makler.net::338364": {
     "baujahr": null,
-    "bild_url": "https://media.ohne-makler.net/rs:fill:488:288/q:90/czM6Ly9vbS1saXN0aW5ncy91cGxvYWQvcGljdHVyZXMvT00vMzM4MzY0L2R0Zmp3azhu?sig=PDQnqUiCUz3IF33lEHh8nmxR2PzJEgsIJn22Z-xrlM8&exp=1794364640",
+    "bild_url": "https://media.ohne-makler.net/rs:fill:488:288/q:90/czM6Ly9vbS1saXN0aW5ncy91cGxvYWQvcGljdHVyZXMvT00vMzM4MzY0L2R0Zmp3azhu?sig=m1c9rJCIsgvhVebtA87og7afyni1L02K_u15U2vFtvw&exp=1794448319",
     "energieeffizienzklasse": null,
     "erstmals_gesehen": "2026-10-17",
     "flaeche_qm": 71.0,
@@ -23,11 +23,11 @@
       "Energieeffizienzklasse unbekannt"
     ],
     "zimmer": 3.0,
-    "zuletzt_gesehen": "2026-11-10"
+    "zuletzt_gesehen": "2026-11-11"
   },
   "ohne-makler.net::482210": {
     "baujahr": null,
-    "bild_url": "https://media.ohne-makler.net/rs:fill:488:288/q:90/czM6Ly9vbS1saXN0aW5ncy91cGxvYWQvcGljdHVyZXMvT00vNDgyMjEwL2lrY3BvcDdo?sig=_Vzg63a7gCxEcb2mzOQSJ_8h2LePKU1NPW_OKPKWGog&exp=1794364640",
+    "bild_url": "https://media.ohne-makler.net/rs:fill:488:288/q:90/czM6Ly9vbS1saXN0aW5ncy91cGxvYWQvcGljdHVyZXMvT00vNDgyMjEwL2lrY3BvcDdo?sig=IEnVRKKwotsRQlEsPHEiQVHlfrkAmdeqxVNql0ATeGk&exp=1794448319",
     "energieeffizienzklasse": null,
     "erstmals_gesehen": "2026-11-10",
     "flaeche_qm": 70.15,
@@ -40,7 +40,7 @@
     "quelle": "ohne-makler.net",
     "quelle_id": "482210",
     "status": [
-      "neu"
+      "unveraendert"
     ],
     "titel": "Körnerstraße 8",
     "url": "https://www.ohne-makler.net/immobilie/482210/",
@@ -49,11 +49,11 @@
       "Energieeffizienzklasse unbekannt"
     ],
     "zimmer": 2.0,
-    "zuletzt_gesehen": "2026-11-10"
+    "zuletzt_gesehen": "2026-11-11"
   },
   "ohne-makler.net::487605": {
     "baujahr": null,
-    "bild_url": "https://media.ohne-makler.net/rs:fill:488:288/q:90/czM6Ly9vbS1saXN0aW5ncy91cGxvYWQvcGljdHVyZXMvT00vNDg3NjA1L2pja3RvM2k0?sig=4Ro9QZ1D-yAnvpwTH9QHihrpmJB-eMr2e182yDqV_3Y&exp=1794364644",
+    "bild_url": "https://media.ohne-makler.net/rs:fill:488:288/q:90/czM6Ly9vbS1saXN0aW5ncy91cGxvYWQvcGljdHVyZXMvT00vNDg3NjA1L2pja3RvM2k0?sig=dzanW5dX19Vx1mViKKK4wJHbVhHGw6csJJphkqFmT8g&exp=1794448324",
     "energieeffizienzklasse": null,
     "erstmals_gesehen": "2026-11-03",
     "flaeche_qm": 66.27,
@@ -75,37 +75,11 @@
       "Energieeffizienzklasse unbekannt"
     ],
     "zimmer": 2.0,
-    "zuletzt_gesehen": "2026-11-10"
-  },
-  "ohne-makler.net::504027": {
-    "baujahr": null,
-    "bild_url": "https://media.ohne-makler.net/rs:fill:488:288/q:90/czM6Ly9vbS1saXN0aW5ncy91cGxvYWQvcGljdHVyZXMvT00vNTA0MDI3LzN1Nmw2bjlt?sig=qeEq7reYbfNGRU_zRb8KavOUKGTPoZ3P7Se1CeHDSMg&exp=1794364640",
-    "energieeffizienzklasse": null,
-    "erstmals_gesehen": "2026-10-12",
-    "flaeche_qm": 35.0,
-    "kaufpreis": 175000.0,
-    "objekttyp": "Wohnung",
-    "ort": "Augsburg",
-    "ortsteil": "Spickel-Herrenbach",
-    "plz": "86161",
-    "preisaenderung": null,
-    "quelle": "ohne-makler.net",
-    "quelle_id": "504027",
-    "status": [
-      "unveraendert"
-    ],
-    "titel": "Sanierte und möblierte Wohnung Einzugs- und Provisionsfrei!",
-    "url": "https://www.ohne-makler.net/immobilie/504027/",
-    "warnungen": [
-      "Baujahr unbekannt",
-      "Energieeffizienzklasse unbekannt"
-    ],
-    "zimmer": 1.0,
-    "zuletzt_gesehen": "2026-11-10"
+    "zuletzt_gesehen": "2026-11-11"
   },
   "ohne-makler.net::505133": {
     "baujahr": null,
-    "bild_url": "https://media.ohne-makler.net/rs:fill:488:288/q:90/czM6Ly9vbS1saXN0aW5ncy91cGxvYWQvcGljdHVyZXMvT00vNTA1MTMzL2k0cWMyYWds?sig=a5hFPi6ATIbfHPbSQWlNWhZeTRaFHaYTk_rlkzRtdgE&exp=1794364640",
+    "bild_url": "https://media.ohne-makler.net/rs:fill:488:288/q:90/czM6Ly9vbS1saXN0aW5ncy91cGxvYWQvcGljdHVyZXMvT00vNTA1MTMzL2k0cWMyYWds?sig=OgMCrDB2-m9nUNBt9G5tHuEIBeGGlyTPIucrfuCjxJw&exp=1794448319",
     "energieeffizienzklasse": null,
     "erstmals_gesehen": "2026-10-14",
     "flaeche_qm": 50.0,
@@ -127,6 +101,6 @@
       "Energieeffizienzklasse unbekannt"
     ],
     "zimmer": 3.0,
-    "zuletzt_gesehen": "2026-11-10"
+    "zuletzt_gesehen": "2026-11-11"
   }
 }
