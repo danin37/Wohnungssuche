@@ -1,7 +1,7 @@
 {
   "ohne-makler.net::482210": {
     "baujahr": null,
-    "bild_url": "https://media.ohne-makler.net/rs:fill:488:288/q:90/czM6Ly9vbS1saXN0aW5ncy91cGxvYWQvcGljdHVyZXMvT00vNDgyMjEwL2lrY3BvcDdo?sig=3JMWWvcJW0fnlcbT6FOsI7hDzPCnRdzaO8bgznrDGwM&exp=1794973437",
+    "bild_url": "https://media.ohne-makler.net/rs:fill:488:288/q:90/czM6Ly9vbS1saXN0aW5ncy91cGxvYWQvcGljdHVyZXMvT00vNDgyMjEwL2lrY3BvcDdo?sig=ZbCVNfFpgvdYTQyPnTgzxOuW2WzK04CLJPBoJ2iRc1k&exp=1795058652",
     "energieeffizienzklasse": null,
     "erstmals_gesehen": "2026-11-10",
     "flaeche_qm": 70.15,
@@ -23,11 +23,11 @@
       "Energieeffizienzklasse unbekannt"
     ],
     "zimmer": 2.0,
-    "zuletzt_gesehen": "2026-11-17"
+    "zuletzt_gesehen": "2026-11-18"
   },
   "ohne-makler.net::487605": {
     "baujahr": null,
-    "bild_url": "https://media.ohne-makler.net/rs:fill:488:288/q:90/czM6Ly9vbS1saXN0aW5ncy91cGxvYWQvcGljdHVyZXMvT00vNDg3NjA1L2pja3RvM2k0?sig=dPU6BYiJAc8JaDQioLEovEEazLKYWWa5EYVx2OvTaqs&exp=1794973441",
+    "bild_url": "https://media.ohne-makler.net/rs:fill:488:288/q:90/czM6Ly9vbS1saXN0aW5ncy91cGxvYWQvcGljdHVyZXMvT00vNDg3NjA1L2pja3RvM2k0?sig=77eCQTOPzuucXLDQWNmQl-TNZMPDNVwv-4Lpm6Qp8B4&exp=1795058655",
     "energieeffizienzklasse": null,
     "erstmals_gesehen": "2026-11-03",
     "flaeche_qm": 66.27,
@@ -49,11 +49,11 @@
       "Energieeffizienzklasse unbekannt"
     ],
     "zimmer": 2.0,
-    "zuletzt_gesehen": "2026-11-17"
+    "zuletzt_gesehen": "2026-11-18"
   },
   "ohne-makler.net::505133": {
     "baujahr": null,
-    "bild_url": "https://media.ohne-makler.net/rs:fill:488:288/q:90/czM6Ly9vbS1saXN0aW5ncy91cGxvYWQvcGljdHVyZXMvT00vNTA1MTMzL2k0cWMyYWds?sig=qqPvGgaKl-aFvvqSRduXqON1zqB60ZaWtGTQJ1MSBNw&exp=1794973437",
+    "bild_url": "https://media.ohne-makler.net/rs:fill:488:288/q:90/czM6Ly9vbS1saXN0aW5ncy91cGxvYWQvcGljdHVyZXMvT00vNTA1MTMzL2k0cWMyYWds?sig=UHEyEGhkXd8O4DxeuxM2jrpI576x33rNezTX1jqA4y4&exp=1795058652",
     "energieeffizienzklasse": null,
     "erstmals_gesehen": "2026-10-14",
     "flaeche_qm": 50.0,
@@ -75,6 +75,6 @@
       "Energieeffizienzklasse unbekannt"
     ],
     "zimmer": 3.0,
-    "zuletzt_gesehen": "2026-11-17"
+    "zuletzt_gesehen": "2026-11-18"
   }
 }
