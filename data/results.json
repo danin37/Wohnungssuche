@@ -1,7 +1,7 @@
 {
   "ohne-makler.net::473134": {
     "baujahr": null,
-    "bild_url": "https://media.ohne-makler.net/rs:fill:488:288/q:90/czM6Ly9vbS1saXN0aW5ncy91cGxvYWQvcGljdHVyZXMvT00vNDczMTM0L2c1b3dzeW5t?sig=rCc6Qf0qjfx3Rx5DiW0H_IQsimTf1VGzIeC4biQCAfg&exp=1795400461",
+    "bild_url": "https://media.ohne-makler.net/rs:fill:488:288/q:90/czM6Ly9vbS1saXN0aW5ncy91cGxvYWQvcGljdHVyZXMvT00vNDczMTM0L2c1b3dzeW5t?sig=yrm-Ijrog_IFF-sz0_Iitg8F8VlElmlw2zNkE9alzSc&exp=1795499083",
     "energieeffizienzklasse": null,
     "erstmals_gesehen": "2026-11-22",
     "flaeche_qm": 65.0,
@@ -14,7 +14,7 @@
     "quelle": "ohne-makler.net",
     "quelle_id": "473134",
     "status": [
-      "neu"
+      "unveraendert"
     ],
     "titel": "Penthaus Antonsviertel 65qm, freie Sicht, unabhängige Wärmepumpen / Pelletsheizung",
     "url": "https://www.ohne-makler.net/immobilie/473134/",
@@ -23,11 +23,11 @@
       "Energieeffizienzklasse unbekannt"
     ],
     "zimmer": 2.0,
-    "zuletzt_gesehen": "2026-11-22"
+    "zuletzt_gesehen": "2026-11-23"
   },
   "ohne-makler.net::482210": {
     "baujahr": null,
-    "bild_url": "https://media.ohne-makler.net/rs:fill:488:288/q:90/czM6Ly9vbS1saXN0aW5ncy91cGxvYWQvcGljdHVyZXMvT00vNDgyMjEwL2lrY3BvcDdo?sig=u8HaQPvGBnj1Mx-Id0AHfEqMU3choWRWPwKZNtbvMCo&exp=1795400461",
+    "bild_url": "https://media.ohne-makler.net/rs:fill:488:288/q:90/czM6Ly9vbS1saXN0aW5ncy91cGxvYWQvcGljdHVyZXMvT00vNDgyMjEwL2lrY3BvcDdo?sig=n2vNy_um_mq_3AdeC-7gxHV4kq9vGKQMyiGfGobP8-c&exp=1795499083",
     "energieeffizienzklasse": null,
     "erstmals_gesehen": "2026-11-10",
     "flaeche_qm": 70.15,
@@ -49,11 +49,11 @@
       "Energieeffizienzklasse unbekannt"
     ],
     "zimmer": 2.0,
-    "zuletzt_gesehen": "2026-11-22"
+    "zuletzt_gesehen": "2026-11-23"
   },
   "ohne-makler.net::487605": {
     "baujahr": null,
-    "bild_url": "https://media.ohne-makler.net/rs:fill:488:288/q:90/czM6Ly9vbS1saXN0aW5ncy91cGxvYWQvcGljdHVyZXMvT00vNDg3NjA1L2pja3RvM2k0?sig=PgTWXkjA1d1mXXXzmpBmQVu-SfJ7lERx2aDd1Tv54Uk&exp=1795400465",
+    "bild_url": "https://media.ohne-makler.net/rs:fill:488:288/q:90/czM6Ly9vbS1saXN0aW5ncy91cGxvYWQvcGljdHVyZXMvT00vNDg3NjA1L2pja3RvM2k0?sig=ia5iqTSwfXTraQ43CJ-MAZFX-x6oP9_p2FQC7SH6o9E&exp=1795499086",
     "energieeffizienzklasse": null,
     "erstmals_gesehen": "2026-11-03",
     "flaeche_qm": 66.27,
@@ -75,11 +75,11 @@
       "Energieeffizienzklasse unbekannt"
     ],
     "zimmer": 2.0,
-    "zuletzt_gesehen": "2026-11-22"
+    "zuletzt_gesehen": "2026-11-23"
   },
   "ohne-makler.net::505133": {
     "baujahr": null,
-    "bild_url": "https://media.ohne-makler.net/rs:fill:488:288/q:90/czM6Ly9vbS1saXN0aW5ncy91cGxvYWQvcGljdHVyZXMvT00vNTA1MTMzL2k0cWMyYWds?sig=RyeH41r_2WADLUAQu_to14zxvXEIDtVSHBU3XBXmOBg&exp=1795400461",
+    "bild_url": "https://media.ohne-makler.net/rs:fill:488:288/q:90/czM6Ly9vbS1saXN0aW5ncy91cGxvYWQvcGljdHVyZXMvT00vNTA1MTMzL2k0cWMyYWds?sig=TlRcslx1fG1qpGa4zKeIJif743RJkRt4UeYBIZ_v1tY&exp=1795499083",
     "energieeffizienzklasse": null,
     "erstmals_gesehen": "2026-10-14",
     "flaeche_qm": 50.0,
@@ -101,6 +101,6 @@
       "Energieeffizienzklasse unbekannt"
     ],
     "zimmer": 3.0,
-    "zuletzt_gesehen": "2026-11-22"
+    "zuletzt_gesehen": "2026-11-23"
   }
 }
