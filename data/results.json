@@ -1,7 +1,33 @@
 {
+  "ohne-makler.net::338364": {
+    "baujahr": null,
+    "bild_url": "https://media.ohne-makler.net/rs:fill:488:288/q:90/czM6Ly9vbS1saXN0aW5ncy91cGxvYWQvcGljdHVyZXMvT00vMzM4MzY0L2R0Zmp3azhu?sig=5uXJoKVCcT7rLRGRbURF5c8MnHpg3KuZ8GrLXWxgDaw&exp=1795839876",
+    "energieeffizienzklasse": null,
+    "erstmals_gesehen": "2026-11-27",
+    "flaeche_qm": 71.0,
+    "kaufpreis": 229000.0,
+    "objekttyp": "Wohnung",
+    "ort": "Augsburg",
+    "ortsteil": "Göggingen",
+    "plz": "86199",
+    "preisaenderung": null,
+    "quelle": "ohne-makler.net",
+    "quelle_id": "338364",
+    "status": [
+      "neu"
+    ],
+    "titel": "Möblierte Wohlfühloase in Augsburg-Göggingen – Perfekt als Ferienwohnung",
+    "url": "https://www.ohne-makler.net/immobilie/338364/",
+    "warnungen": [
+      "Baujahr unbekannt",
+      "Energieeffizienzklasse unbekannt"
+    ],
+    "zimmer": 3.0,
+    "zuletzt_gesehen": "2026-11-27"
+  },
   "ohne-makler.net::473134": {
     "baujahr": null,
-    "bild_url": "https://media.ohne-makler.net/rs:fill:488:288/q:90/czM6Ly9vbS1saXN0aW5ncy91cGxvYWQvcGljdHVyZXMvT00vNDczMTM0L2c1b3dzeW5t?sig=0fPxqBzGnCpyGZVwKFzDv6MpeXHigcEgIBr49g8YEa4&exp=1795754325",
+    "bild_url": "https://media.ohne-makler.net/rs:fill:488:288/q:90/czM6Ly9vbS1saXN0aW5ncy91cGxvYWQvcGljdHVyZXMvT00vNDczMTM0L2c1b3dzeW5t?sig=OJQrkyqcHWGAzA_m6WRA0pY_72_wHYg00_Ub0kJtxD0&exp=1795839876",
     "energieeffizienzklasse": null,
     "erstmals_gesehen": "2026-11-22",
     "flaeche_qm": 65.0,
@@ -23,11 +49,11 @@
       "Energieeffizienzklasse unbekannt"
     ],
     "zimmer": 2.0,
-    "zuletzt_gesehen": "2026-11-26"
+    "zuletzt_gesehen": "2026-11-27"
   },
   "ohne-makler.net::482210": {
     "baujahr": null,
-    "bild_url": "https://media.ohne-makler.net/rs:fill:488:288/q:90/czM6Ly9vbS1saXN0aW5ncy91cGxvYWQvcGljdHVyZXMvT00vNDgyMjEwL2lrY3BvcDdo?sig=-nxmrDrwUpa3y9pM8_j9_z-1gAjr7PjG1_RNFc831z0&exp=1795754325",
+    "bild_url": "https://media.ohne-makler.net/rs:fill:488:288/q:90/czM6Ly9vbS1saXN0aW5ncy91cGxvYWQvcGljdHVyZXMvT00vNDgyMjEwL2lrY3BvcDdo?sig=4JmUlyFhMHriLI9LQM08l54tzmHKB69SzV0Sz3ojKM8&exp=1795839876",
     "energieeffizienzklasse": null,
     "erstmals_gesehen": "2026-11-10",
     "flaeche_qm": 70.15,
@@ -49,11 +75,11 @@
       "Energieeffizienzklasse unbekannt"
     ],
     "zimmer": 2.0,
-    "zuletzt_gesehen": "2026-11-26"
+    "zuletzt_gesehen": "2026-11-27"
   },
   "ohne-makler.net::487605": {
     "baujahr": null,
-    "bild_url": "https://media.ohne-makler.net/rs:fill:488:288/q:90/czM6Ly9vbS1saXN0aW5ncy91cGxvYWQvcGljdHVyZXMvT00vNDg3NjA1L2pja3RvM2k0?sig=EzKCJyFaVnNfJJdZ-C4xPKNC8JHjRUTDU7yNwGzr9bo&exp=1795754329",
+    "bild_url": "https://media.ohne-makler.net/rs:fill:488:288/q:90/czM6Ly9vbS1saXN0aW5ncy91cGxvYWQvcGljdHVyZXMvT00vNDg3NjA1L2pja3RvM2k0?sig=mDhriWUFrAOQ54A6kqshZpqtpHFWTSd0d07IaS6L-iU&exp=1795839880",
     "energieeffizienzklasse": null,
     "erstmals_gesehen": "2026-11-03",
     "flaeche_qm": 66.27,
@@ -75,11 +101,11 @@
       "Energieeffizienzklasse unbekannt"
     ],
     "zimmer": 2.0,
-    "zuletzt_gesehen": "2026-11-26"
+    "zuletzt_gesehen": "2026-11-27"
   },
   "ohne-makler.net::505133": {
     "baujahr": null,
-    "bild_url": "https://media.ohne-makler.net/rs:fill:488:288/q:90/czM6Ly9vbS1saXN0aW5ncy91cGxvYWQvcGljdHVyZXMvT00vNTA1MTMzL2k0cWMyYWds?sig=p0-JfLCyCvbGCWJCLdxnkt4RKC_bgrGE8C2k-ixRedA&exp=1795754325",
+    "bild_url": "https://media.ohne-makler.net/rs:fill:488:288/q:90/czM6Ly9vbS1saXN0aW5ncy91cGxvYWQvcGljdHVyZXMvT00vNTA1MTMzL2k0cWMyYWds?sig=IsSCP4aAPQ-LVdJDRyD7WEyj-ECRxK3KTxpLGBh7bqE&exp=1795839876",
     "energieeffizienzklasse": null,
     "erstmals_gesehen": "2026-10-14",
     "flaeche_qm": 50.0,
@@ -101,6 +127,6 @@
       "Energieeffizienzklasse unbekannt"
     ],
     "zimmer": 3.0,
-    "zuletzt_gesehen": "2026-11-26"
+    "zuletzt_gesehen": "2026-11-27"
   }
 }
